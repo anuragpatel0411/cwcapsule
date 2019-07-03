@@ -1,6 +1,10 @@
 <html>
+	<head>
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+		<link rel="stylesheet" href="./styles/bootstrap.css">
+		<link rel="stylesheet" href="./styles/styles.css">
+	</head>
 	<body>
-		<a href= "register.php">Register</a>
-		<a href= "login.php">Login</a>
+		<?php include 'header.php' ?>
 	</body>
 </html>
