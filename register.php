@@ -9,7 +9,7 @@
 	<body>
 		<?php include 'header.php' ?>
         <div class="regdbox">
-
+            hii
         </div>
 	</body>
 </html>
