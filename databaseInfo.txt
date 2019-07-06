@@ -1,0 +1,19 @@
+database name: cwcapsule
+
+CREATE TABLE students (studentId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, studentName VARCHAR(30) NOT NULL, email VARCHAR(50) NOT NULL, birthDate varchar(10) NOT NULL, course varchar(20) NOT NULL, majorSubject varchar(20) NOT NULL, pass varchar(20) NOT NULL,  registrationDate TIMESTAMP); 
+
+CREATE TABLE subjects (subjetId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, subjectName VARCHAR(30) NOT NULL);
+
+INSERT INTO `subjects`(`subjectName`) VALUES ('Science');
+INSERT INTO `subjects`(`subjectName`) VALUES ('Management');
+INSERT INTO `subjects`(`subjectName`) VALUES ('Engineering');
+
+ALTER TABLE `students` ADD `mobile` VARCHAR(20) NOT NULL AFTER `email`;
+
+ALTER TABLE `students` CHANGE `mobile` `mobile` varchar(20) NOT NULL;
+ALTER TABLE `students` ADD UNIQUE(`email`);
+ALTER TABLE `students` ADD `verified` boolean NOT NULL;
+
+
+
+CREATE TABLE teachers (teacherId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, teacherName VARCHAR(30) NOT NULL, email VARCHAR(50) NOT NULL UNIQUE, mobile VARCHAR(20) NOT NULL, birthDate varchar(10) NOT NULL, qualification varchar(20) NOT NULL, subject varchar(20) NOT NULL, pass varchar(20) NOT NULL,  registrationDate TIMESTAMP, mailVerified boolean, testPass boolean, documentVerified boolean); 
