@@ -18,14 +18,14 @@
                 $_SESSION["role"] = "student";
                 header('Location: http://localhost/projectRicha/student/home.php');
             } else {
-                $msg = "Registerd Successfully...";
+                $msg = "Wrong email or password...";
             }
             $conn->close();        
     }
 
     if(isset($_POST['submitTeacher'])){
         $mail = $_POST['email'];
-        $pass	= $_POST['password'];
+        $pass	= $_POST['pass'];
         $sql = "SELECT * FROM teacher WHERE email = '$mail' AND pass= '$pass'";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
@@ -35,7 +35,7 @@
             $_SESSION["role"] = "teacher";
             header('Location: http://localhost/projectRicha/teacher/teacher.php');
         } else {
-            $msg = "Registerd Successfully...";
+            $msg = "Wrong email or password...";
         }
         $conn->close();
     }   
@@ -60,7 +60,7 @@
                     <button class="tablinks col-6 active" onclick="change(event, 'student')">Login Student</button>
                     <button class="tablinks col-6" onclick="change(event, 'teacher')">Login Teacher</button>
                 </div> 
-                <div style="color:blue; text-align:center;"><?php echo $msg;?></div>   
+                <div style="color:red; text-align:center;"><?php echo $msg;?></div>   
                 
                 <div id="student" style="display:block;" class="tabcontent">            
                     <form method="post" class="row">
