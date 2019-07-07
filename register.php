@@ -40,7 +40,7 @@
             $message .= "Welcome to CWCAPSULE! We are very excited to have you on board.            
             We require you to verify your email to keep your account secure and to recover your account.
             Click pn the link to verify your email.<br>";
-            $message .= "http://localhost/cwcapsule/verifymail.php?email=". $email . "&name=" . $name;
+            $message .= "http://localhost/cwcapsule/verifymail.php?email=". $email . "&name=" . $name . "&r=s";
     
             $headers = "From: $from_email\r\nReply-To: $from_email";
     
@@ -86,7 +86,7 @@
             $message .= "Welcome to CWCAPSULE! We are very excited to have you on board.            
             We require you to verify your email to keep your account secure and to recover your account.
             Click pn the link to verify your email.<br>";
-            $message .= "http://localhost/cwcapsule/verifymail.php?email=". $email . "&name=" . $name;
+            $message .= "http://localhost/cwcapsule/verifymail.php?email=". $email . "&name=" . $name . "&r=t";
     
             $headers = "From: $from_email\r\nReply-To: $from_email";
     
