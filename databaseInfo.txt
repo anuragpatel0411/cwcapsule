@@ -1,0 +1,38 @@
+database name: cwcapsule
+
+CREATE TABLE students (studentId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, studentName VARCHAR(30) NOT NULL, email VARCHAR(50) NOT NULL, birthDate varchar(10) NOT NULL, course varchar(20) NOT NULL, majorSubject varchar(20) NOT NULL, pass varchar(20) NOT NULL,  registrationDate TIMESTAMP); 
+
+CREATE TABLE subjects (subjetId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, subjectName VARCHAR(30) NOT NULL);
+
+INSERT INTO `subjects`(`subjectName`) VALUES ('Science');
+INSERT INTO `subjects`(`subjectName`) VALUES ('Management');
+INSERT INTO `subjects`(`subjectName`) VALUES ('Engineering');
+
+ALTER TABLE `students` ADD `mobile` VARCHAR(20) NOT NULL AFTER `email`;
+
+ALTER TABLE `students` CHANGE `mobile` `mobile` varchar(20) NOT NULL;
+ALTER TABLE `students` ADD UNIQUE(`email`);
+ALTER TABLE `students` ADD `verified` boolean NOT NULL;
+
+
+CREATE TABLE teachers (teacherId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, teacherName VARCHAR(30) NOT NULL, email VARCHAR(50) NOT NULL UNIQUE, mobile VARCHAR(20) NOT NULL, birthDate varchar(10) NOT NULL, qualification varchar(20) NOT NULL, subject varchar(20) NOT NULL, pass varchar(20) NOT NULL,  registrationDate TIMESTAMP, mailVerified boolean, testPass boolean, documentVerified boolean); 
+
+
+
+CREATE TABLE teacherTestQuestions(quesid INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, subjectId INT(6), question varchar(300));
+CREATE TABLE teacherTestQuestionChoices(choiceid INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, quesid INT(6), is_right boolean, choice varchar(50));
+
+
+INSERT INTO `teachertestquestionchoices`(`quesid`, `is_right`, `choice`) VALUES (6,FALSE,'Heat is evolved');
+INSERT INTO `teachertestquestionchoices`(`quesid`, `is_right`, `choice`) VALUES (6,FALSE,'Heat is absorbed');
+INSERT INTO `teachertestquestionchoices`(`quesid`, `is_right`, `choice`) VALUES (6,TRUE,'Temperature increases');
+INSERT INTO `teachertestquestionchoices`(`quesid`, `is_right`, `choice`) VALUES (6,FALSE,'Light is produced');
+
+INSERT INTO `teachertestquestionchoices`(`quesid`, `is_right`, `choice`) VALUES (9,FALSE,'Heat is evolved');
+INSERT INTO `teachertestquestionchoices`(`quesid`, `is_right`, `choice`) VALUES (9,FALSE,'Heat is absorbed');
+INSERT INTO `teachertestquestionchoices`(`quesid`, `is_right`, `choice`) VALUES (9,TRUE,'Temperature increases');
+INSERT INTO `teachertestquestionchoices`(`quesid`, `is_right`, `choice`) VALUES (9,FALSE,'Light is produced');
+
+
+ALTER TABLE `teachers` ADD `id` VARCHAR(100) NOT NULL DEFAULT 'None' AFTER `documentVerified`, ADD `qualificationCerti` VARCHAR(100) NOT NULL AFTER `id`, ADD `cv` VARCHAR(100) NOT NULL AFTER `qualificationCerti`, ADD `pan` VARCHAR(100) NULL AFTER `cv`, ADD `panno` VARCHAR(20) NULL AFTER `pan`;
+ALTER TABLE `teachers` ADD `documentUpload` BOOLEAN NOT NULL DEFAULT FALSE AFTER `testPass`;

@@ -15,7 +15,12 @@
 
             <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                 <ul class="navbar-nav">
+<<<<<<< HEAD
                 <li><a href="index.html">Home</a></li>
+=======
+                <li><a href="index.php">Home</a></li>
+                <li><a href="#">About</a></li>
+>>>>>>> 354f7ded89de813f52d82b205c2105e17a7da980
                 <li><a href="#">Student</a></li>
                 <li><a href="#">Teacher</a></li>
                 <?php
@@ -34,6 +39,13 @@
                 ?>
                 <li><a href="#">About Us</a></li>
                 <li><a href="contacts.html">Contact Us</a></li>
+<<<<<<< HEAD
+=======
+
+                <li><a href="login.php">Login</a></li>
+                <li><a href="http://localhost/cwcapsule/register.php">Sign-up</a></li>
+
+>>>>>>> 354f7ded89de813f52d82b205c2105e17a7da980
                 </ul>
             </div>
         </div>

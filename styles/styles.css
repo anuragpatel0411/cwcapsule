@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 .defaultHeader {
+=======
+  .default-header {
+>>>>>>> 354f7ded89de813f52d82b205c2105e17a7da980
     width: 100% !important;
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
@@ -47,6 +51,7 @@
     left: 0;
     width: 100%;
     background: #222222; }
+<<<<<<< HEAD
 
 .homeBannerArea {
     background: url(../img/home-banner-bg.png) no-repeat;
@@ -97,3 +102,6 @@
         display: none; } }
     
     
+=======
+  
+>>>>>>> 354f7ded89de813f52d82b205c2105e17a7da980
