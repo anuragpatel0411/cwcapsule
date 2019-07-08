@@ -2,21 +2,21 @@
     $msg = "";
     $err = "";
     session_start();
-    $conn = new mysqli("localhost", "root", "", "quesans");    
+    $conn = new mysqli("localhost", "root", "", "cwcapsule");    
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } 
     if(isset($_POST['submitStudent'])){
         $email	= $_POST['email'];
-        $password = $_POST['pass'];
-            $sql = "SELECT * FROM students WHERE email = '$mail' AND pass= '$pass'";
+        $pass = $_POST['pass'];
+            $sql = "SELECT * FROM students WHERE email = '$email' AND pass= '$pass'";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
                 $_SESSION["username"] = $row["studentName"];
-                $_SESSION["id"] = $row["studentid"];
+                $_SESSION["id"] = $row["studentId"];
                 $_SESSION["role"] = "student";
-                header('Location: http://localhost/projectRicha/student/home.php');
+                header('Location: http://localhost/cwcapsule/students/home.php');
             } else {
                 $msg = "Wrong email or password...";
             }
@@ -26,14 +26,14 @@
     if(isset($_POST['submitTeacher'])){
         $mail = $_POST['email'];
         $pass	= $_POST['pass'];
-        $sql = "SELECT * FROM teacher WHERE email = '$mail' AND pass= '$pass'";
+        $sql = "SELECT * FROM teachers WHERE email = '$mail' AND pass= '$pass'";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $_SESSION["username"] = $row["teacherName"];
-            $_SESSION["id"] = $row["teacherid"];
+            $_SESSION["id"] = $row["teacherId"];
             $_SESSION["role"] = "teacher";
-            header('Location: http://localhost/projectRicha/teacher/teacher.php');
+            header('Location: http://localhost/cwcapsule/teachers/home.php');
         } else {
             $msg = "Wrong email or password...";
         }

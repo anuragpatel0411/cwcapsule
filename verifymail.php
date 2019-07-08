@@ -18,6 +18,9 @@
             $sql2 = "UPDATE students SET verified= TRUE WHERE studentId='$id'";
 
             if ($conn->query($sql2) === TRUE) {
+                $_SESSION["username"] = $_GET["name"];
+                $_SESSION["id"] = $id;
+                $_SESSION["role"] = "student";
                 header('Location: http://localhost/cwcapsule/students/home.php?id='.$id);
             } else {
                 echo "Error: " . $sql2 . "<br>" . $conn->error;
@@ -38,6 +41,9 @@
             $sql2 = "UPDATE teachers SET mailVerified= TRUE WHERE teacherId='$id'";
 
             if ($conn->query($sql2) === TRUE) {
+                $_SESSION["username"] = $_GET["name"];
+                $_SESSION["id"] = $id;
+                $_SESSION["role"] = "teacher";
                 header('Location: http://localhost/cwcapsule/teachers/teachertest.php?id='.$id);
             } else {
                 echo "Error: " . $sql2 . "<br>" . $conn->error;

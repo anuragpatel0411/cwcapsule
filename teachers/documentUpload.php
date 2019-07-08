@@ -1,16 +1,31 @@
 <!-- http://localhost/cwcapsule/teachers/documentUpload.php?id=1 -->
 <?php
+
+    $id = $_GET['id'];
+
+    $conn = new mysqli("localhost", "root", "", "cwcapsule");
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
+    $sql = "SELECT documentVerified, documentUpload  FROM teachers where teacherId = '$id'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if($row["documentVerified"] == TRUE){
+            header('Location: http://localhost/cwcapsule/teachers/home.php?id=' . $id);
+        }
+        if($row["documentUpload"] == TRUE){
+            header('Location: http://localhost/cwcapsule/teachers/documentVerificationWait.php?id=' . $id);
+        }
+    }
+
     $err1 = "";
     $err2 = "";
     $err3 = "";
     $err4 = "";
     if(isset($_POST['submit'])){
-        $id = $_GET['id'];
-        
         $target_dir = "documentsUploads/" . $id . "/";
-        if(!$target_dir){
-            mkdir("documentsUploads/" . $id . "/");
-        }
+        mkdir("documentsUploads/" . $id . "/");
 
         $target_file1 = $target_dir . basename($_FILES["id"]["name"]);
         $target_file2 = $target_dir . basename($_FILES["qualification"]["name"]);
@@ -27,23 +42,6 @@
         $imageFileType3 = strtolower(pathinfo($target_file3,PATHINFO_EXTENSION));
         $imageFileType4 = strtolower(pathinfo($target_file4,PATHINFO_EXTENSION));
 
-        // Check if file already exists
-        if (file_exists($target_file1)) {
-            $err1 .= "Sorry, file already exists.<br>";
-            $uploadOk1 = 0;
-        }
-        if (file_exists($target_file2)) {
-            $err2 .= "Sorry, file already exists.<br>";
-            $uploadOk2 = 0;
-        }
-        if (file_exists($target_file3)) {
-            $err3 .= "Sorry, file already exists.<br>";
-            $uploadOk3 = 0;
-        }
-        if (file_exists($target_file4)) {
-            $err4 .= "Sorry, file already exists.<br>";
-            $uploadOk4 = 0;
-        }
 
         // file1
         if ($_FILES["id"]["size"] > 500000) {
@@ -112,26 +110,50 @@
         }
 
         // file4
-        if ($_FILES["pan"]["size"] > 1000000) {
-            $err4 .= "Sorry, your file is too large.<br>";
-            $uploadOk4 = 0;
-        }else{
-            if($imageFileType4 != "jpg" && $imageFileType4 != "png" && $imageFileType4 != "jpeg" ) {
-                $err4 .= "Wrong file format.<br>";
+        if($_FILES["pan"]["size"] != 0){
+            if ($_FILES["pan"]["size"] > 1000000) {
+                $err4 .= "Sorry, your file is too large.<br>";
                 $uploadOk4 = 0;
             }else{
-                if ($uploadOk4 == 0) {
-                    $err4 .= "Sorry, your file was not uploaded.<br>";
-                // if everything is ok, try to upload file
-                } else {
-                    if (move_uploaded_file($_FILES["pan"]["tmp_name"], $target_file4)) {
-                        $err4 .= "The file ". basename( $_FILES["pan"]["name"]). " has been uploaded.";
+                if($imageFileType4 != "jpg" && $imageFileType4 != "png" && $imageFileType4 != "jpeg" ) {
+                    $err4 .= "Wrong file format.<br>";
+                    $uploadOk4 = 0;
+                }else{
+                    if ($uploadOk4 == 0) {
+                        $err4 .= "Sorry, your file was not uploaded.<br>";
+                    // if everything is ok, try to upload file
                     } else {
-                        $err4 .= "Sorry, there was an error uploading your file.";
+                        if (move_uploaded_file($_FILES["pan"]["tmp_name"], $target_file4)) {
+                            $err4 .= "The file ". basename( $_FILES["pan"]["name"]). " has been uploaded.";
+                        } else {
+                            $err4 .= "Sorry, there was an error uploading your file.";
+                        }
                     }
                 }
+            } 
+        }  
+        
+        //store info in database
+        if($uploadOk1 ==1 && $uploadOk2 ==1 &&$uploadOk3 ==1){
+            $conn = new mysqli("localhost", "root", "", "cwcapsule");    
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            } 
+            $panno = $_POST['panno'];
+            $idss = basename($_FILES["id"]["name"]);
+            $qul = basename($_FILES["qualification"]["name"]);
+            $cv = basename($_FILES["cv"]["name"]);
+            $pan = basename($_FILES["pan"]["name"]);
+            $sql = "UPDATE teachers SET id = '$idss', qualificationCerti = '$qul', cv = '$cv', pan = '$pan', panno = '$panno', documentUpload = '1' WHERE teacherId = '$id'";
+
+            if ($conn->query($sql) === TRUE) {
+                header('Location: http://localhost/cwcapsule/teachers/documentVerificationWait.php?id=' . $id);
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
             }
-        }       
+
+            $conn->close();
+        }
     }
 ?>
 
@@ -146,7 +168,7 @@
 	</head>
 	<body class="paper">
 		<div>
-            <!-- <?php include './../header.php' ?>    -->
+            <?php include './../header.php' ?>   
         </div>
         <div class="row">
             <div id="paper" class="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-8 box tabcontent" >
@@ -159,7 +181,6 @@
                 <form method="post" enctype="multipart/form-data">
                     <div>
                         <h3>Photo Id</h3>
-                        <input type="text" name="idno" placeholder="ID Number"><span style="color:red">*required</span><br>
                         <div class="custom-file col-12 col-md-6">
                             <input type="file" class="custom-file-input" id="inputID" name="id">
                             <label class="custom-file-label" for="inputID">Choose file</label>
@@ -186,7 +207,7 @@
                     </div>
                     <div>
                         <h3>PAN Card</h3>
-                        <input type="text" name="panno" placeholder="PAN Number"><br>
+                        <input type="text" name="panno" placeholder="PAN Number" class="panno"><br>
                         <div class="custom-file col-12 col-md-6">
                             <input type="file" class="custom-file-input" id="inputPAN" name="pan">
                             <label class="custom-file-label" for="inputPAN">Choose file</label>
