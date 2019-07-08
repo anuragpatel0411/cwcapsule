@@ -33,3 +33,6 @@ INSERT INTO `teachertestquestionchoices`(`quesid`, `is_right`, `choice`) VALUES 
 INSERT INTO `teachertestquestionchoices`(`quesid`, `is_right`, `choice`) VALUES (9,TRUE,'Temperature increases');
 INSERT INTO `teachertestquestionchoices`(`quesid`, `is_right`, `choice`) VALUES (9,FALSE,'Light is produced');
 
+
+ALTER TABLE `teachers` ADD `id` VARCHAR(100) NOT NULL DEFAULT 'None' AFTER `documentVerified`, ADD `qualificationCerti` VARCHAR(100) NOT NULL AFTER `id`, ADD `cv` VARCHAR(100) NOT NULL AFTER `qualificationCerti`, ADD `pan` VARCHAR(100) NULL AFTER `cv`, ADD `panno` VARCHAR(20) NULL AFTER `pan`;
+ALTER TABLE `teachers` ADD `documentUpload` BOOLEAN NOT NULL DEFAULT FALSE AFTER `testPass`;

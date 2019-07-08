@@ -44,14 +44,13 @@ input[type=submit]{
 .msg p{
     padding-left: 15px;
 }
-.custom-file-input{
-    width: 100%;
-    height: 15px;
-    margin: 10px 0;
+.panno{
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid #d8dde1;
     padding-left: 10px;
-    border-radius: 10px;
-    border: 1px solid #ced4da;
 }
-.custom-file{
-    height: 10px;background: red;
+.verify{
+    margin-top: 200px;
+    padding: 100px 10px;
 }

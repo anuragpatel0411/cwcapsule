@@ -19,7 +19,7 @@
                 <li><a href="contacts.html">Contact Us</a></li>
 
                 <li><a href="login.php">Login</a></li>
-                <li><a href="register.php">Sign-up</a></li>
+                <li><a href="http://localhost/cwcapsule/register.php">Sign-up</a></li>
 
                 </ul>
             </div>
