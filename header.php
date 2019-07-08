@@ -1,4 +1,8 @@
-<header class="default-header">
+<?php 
+        session_start();
+        $_SESSIION["username"]="a";
+?>
+<header class="defaultHeader">
     <nav class="navbar navbar-expand-lg  navbar-light">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -12,37 +16,44 @@
             <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#">About</a></li>
                 <li><a href="#">Student</a></li>
                 <li><a href="#">Teacher</a></li>
-                
+                <?php
+                    if(!$_SESSIION["username"]){
+                        echo"<li><a href='login.php'>Login</a></li>";
+                        echo"<li><a href='register.php'>Sign-up</a></li>";}
+                    else{
+                        //login header
+                        if($_SESSION["role"]=='teacher'){
+                                echo"<li><a href='index.php'>Logout</a></li>";
+                            }
+                            if($_SESSION["role"]=='student'){
+                                echo"<li><a href='index.php'>Logout</a></li>";
+                            }
+                    }
+                ?>
+                <li><a href="#">About Us</a></li>
                 <li><a href="contacts.html">Contact Us</a></li>
-
-                <li><a href="login.php">Login</a></li>
-                <li><a href="register.php">Sign-up</a></li>
-
                 </ul>
             </div>
         </div>
     </nav>
 </header>
+    
+        <!-- 
+        <?php 
+        session_start();
+        if(!$_SESSIION["username"]){
+                //header before login at homepage
 
-
-
-<!-- 
-<?php 
-   session_start();
-   if(!$_SESSIION["username"]){
-        //header before login at homepage
-
-   }
-   else{
-       //login header
-       if($_SESSION["role"]=='teacher'){
-            //teacher header
         }
-        if($_SESSION["role"]=='teacher'){
-            //student header
+        else{
+            //login header
+            if($_SESSION["role"]=='teacher'){
+                    //teacher header
+                }
+                if($_SESSION["role"]=='teacher'){
+                    //student header
+                }
         }
-   }
-?> -->
+        ?> -->
