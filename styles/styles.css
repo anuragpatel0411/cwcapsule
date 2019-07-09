@@ -1,8 +1,26 @@
-<<<<<<< HEAD
-.defaultHeader {
-=======
-  .default-header {
->>>>>>> 354f7ded89de813f52d82b205c2105e17a7da980
+a {
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s; }
+
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  a,
+a:focus,
+a:hover {
+  text-decoration: none;
+  outline: 0; }
+  .transition {
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s; }
+
+.defaultHeadern {
     width: 100% !important;
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
@@ -10,7 +28,7 @@
     transition: all 0.3s ease 0s; }
   
     .navbar-light .navbar-toggler {
-      color: #fff;
+      color:white;
       border-color: #fff; }
       .navbar-light .navbar-toggler:focus {
         outline: 0px; }
@@ -43,7 +61,7 @@
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 500;
-    color: #fff;
+    color:white;
     padding: 20px; }
   
   .header-scrolled {
@@ -51,7 +69,6 @@
     left: 0;
     width: 100%;
     background: #222222; }
-<<<<<<< HEAD
 
 .homeBannerArea {
     background: url(../img/home-banner-bg.png) no-repeat;
@@ -101,7 +118,9 @@
         .homeBannerRight img {
         display: none; } }
     
+.logout{
+  border:0px;
+  background-color:null;
+}
     
-=======
   
->>>>>>> 354f7ded89de813f52d82b205c2105e17a7da980

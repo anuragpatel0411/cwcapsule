@@ -1,6 +1,12 @@
 <?php 
         session_start();
-        $_SESSIION["username"]="a";
+        if(isset($_POST['logout'])){
+            session_unset(); 
+            session_destroy(); 
+            header('Location: /cwcapsule/index.php');
+        }    
+        $_SESSION["username"]="";
+        $_SESSION["role"]="";
 ?>
 <header class="defaultHeader">
     <nav class="navbar navbar-expand-lg  navbar-light">
@@ -15,37 +21,29 @@
 
             <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-<<<<<<< HEAD
                 <li><a href="index.html">Home</a></li>
-=======
-                <li><a href="index.php">Home</a></li>
-                <li><a href="#">About</a></li>
->>>>>>> 354f7ded89de813f52d82b205c2105e17a7da980
                 <li><a href="#">Student</a></li>
                 <li><a href="#">Teacher</a></li>
                 <?php
-                    if(!$_SESSIION["username"]){
+                    if(!$_SESSION["username"]){
                         echo"<li><a href='login.php'>Login</a></li>";
                         echo"<li><a href='register.php'>Sign-up</a></li>";}
                     else{
-                        //login header
+                        //logout header
                         if($_SESSION["role"]=='teacher'){
-                                echo"<li><a href='index.php'>Logout</a></li>";
+                                echo"<li><form method='post'>
+                                <input type='submit' class='logout' name='logout' value='Logout'>
+                                </form></li>";
                             }
-                            if($_SESSION["role"]=='student'){
-                                echo"<li><a href='index.php'>Logout</a></li>";
+                        if($_SESSION["role"]=='student'){
+                            echo"<li><form method='post'>
+                            <input type='submit' class='logout' name='logout' value='Logout'>
+                            </form></li>";
                             }
                     }
                 ?>
                 <li><a href="#">About Us</a></li>
                 <li><a href="contacts.html">Contact Us</a></li>
-<<<<<<< HEAD
-=======
-
-                <li><a href="login.php">Login</a></li>
-                <li><a href="http://localhost/cwcapsule/register.php">Sign-up</a></li>
-
->>>>>>> 354f7ded89de813f52d82b205c2105e17a7da980
                 </ul>
             </div>
         </div>
