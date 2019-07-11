@@ -5,11 +5,8 @@
 		<link rel="stylesheet" href="./styles/styles.css">
 	</head>
 	<body>
-		<div>
-            <?php include 'header.php' ?>   
-        </div>
-		A
-		<!-- <section class="homeBannerArea">
+		<?php include 'header.php' ?>
+		<section class="homeBannerArea">
 			<div class="container">
 				<div class="row justify-content-center fullscreen align-items-center">
 					<div class="col-lg-5 col-md-8 homeBannerLeft">
@@ -26,6 +23,6 @@
 					</div>
 				</div>
 			</div>
-		</section> -->
+		</section>
 	</body>
 </html>
