@@ -8,6 +8,7 @@
 		<div>
             <?php include 'header.php' ?>   
         </div>
+		A
 		<!-- <section class="homeBannerArea">
 			<div class="container">
 				<div class="row justify-content-center fullscreen align-items-center">
