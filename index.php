@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<?php include 'header.php' ?>
-		<!-- <section class="homeBannerArea">
+		<section class="homeBannerArea">
 			<div class="container">
 				<div class="row justify-content-center fullscreen align-items-center">
 					<div class="col-lg-5 col-md-8 homeBannerLeft">
@@ -23,6 +23,6 @@
 					</div>
 				</div>
 			</div>
-		</section> -->
+		</section>
 	</body>
 </html>
