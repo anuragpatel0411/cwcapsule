@@ -1,24 +1,12 @@
-a {
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s; }
-
-ol,
-ul {
+ol,ul {
   margin: 0;
   padding: 0;
-  list-style: none; }
-  a,
-a:focus,
-a:hover {
+  list-style: none; 
+}
+a, a:focus, a:hover {
   text-decoration: none;
-  outline: 0; }
-  .transition {
-    -webkit-transition: all 0.3s ease 0s;
-    -moz-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s; }
+  outline: 0; 
+}
 
 .defaultHeadern {
     width: 100% !important;
@@ -61,7 +49,7 @@ a:hover {
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 500;
-    color:white;
+    color:#111;
     padding: 20px; }
   
   .header-scrolled {

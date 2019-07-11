@@ -4,9 +4,7 @@
             session_unset(); 
             session_destroy(); 
             header('Location: /cwcapsule/index.php');
-        }    
-        $_SESSION["username"]="";
-        $_SESSION["role"]="";
+        }
 ?>
 <header class="defaultHeader">
     <nav class="navbar navbar-expand-lg  navbar-light">
@@ -21,7 +19,7 @@
 
             <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="#">Student</a></li>
                 <li><a href="#">Teacher</a></li>
                 <?php
@@ -52,7 +50,7 @@
     
         <!-- 
         <?php 
-        session_start();
+        // session_start();
         if(!$_SESSIION["username"]){
                 //header before login at homepage
 

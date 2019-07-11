@@ -4,7 +4,7 @@
     $class = "block";
     $classmail = "none";
     $message = '';
-    session_start();
+    // session_start();
     $conn = new mysqli("localhost", "root", "", "cwcapsule");    
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);

@@ -5,7 +5,9 @@
 		<link rel="stylesheet" href="./styles/styles.css">
 	</head>
 	<body>
-		<?php include 'header.php' ?>
+		<div>
+            <?php include 'header.php' ?>   
+        </div>
 		<!-- <section class="homeBannerArea">
 			<div class="container">
 				<div class="row justify-content-center fullscreen align-items-center">
