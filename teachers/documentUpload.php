@@ -165,6 +165,8 @@
 		
         <link rel="stylesheet" href="./../styles/styles.css">
         <link rel="stylesheet" href="./styles/style.css">
+        <title>Upload Document</title>
+
 	</head>
 	<body class="paper">
 		<div>

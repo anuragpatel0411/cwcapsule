@@ -10,7 +10,7 @@
         die("Connection failed: " . $conn->connect_error);
     } 
     if(isset($_POST['submitStudent'])){
-        $name = $_POST['fname'] . $_POST['lname'];
+        $name = $_POST['fname'] . " " . $_POST['lname'];
         $email	= $_POST['email'];
         $mobile = "+" . $_POST['country'] . " " . $_POST['mobile'];
         $dob = (string)$_POST['dob'];
@@ -56,7 +56,7 @@
     } 
 
     if(isset($_POST['submitTeacher'])){
-        $name = $_POST['fname'] . $_POST['lname'];
+        $name = $_POST['fname'] . " " . $_POST['lname'];
         $email	= $_POST['email'];
         $mobile = "+" . $_POST['country'] . " " . $_POST['mobile'];
         $dob = (string)$_POST['dob'];
@@ -110,6 +110,7 @@
 		
         <link rel="stylesheet" href="./styles/styles.css">
         <link rel="stylesheet" href="./styles/registerlogin.css">
+        <title>Register</title>
 	</head>
 	<body class="regdbox">
 		<div>
@@ -358,8 +359,8 @@
                                 </select>
                         </span>
                         <span class="col-12 col-md-6">
-                            <input type="text" class="formInput" placeholder="Mobile No." name="mobile">
-                        </span>
+                            <input name="mobile" class="formInput" placeholder="Mobile No." id="mobile" type="text" required onkeyup="check(); return false;" ><span id="message"></span>
+                        </span> 
                         <span class="col-12 col-md-6">
                             <select name="course" class="formInput">
                                 <option>----Course Name----</option>
@@ -644,7 +645,7 @@
                                 </select>
                         </span>
                         <span class="col-12 col-md-6">
-                            <input type="text" class="formInput" placeholder="Mobile No." name="mobile">
+                            <input name="mobile" class="formInput" placeholder="Mobile No." id="mobile" type="text" required onkeyup="check(); return false;" ><span id="message"></span>
                         </span>
                         <span class="col-12 col-md-6">
                             <select name="qualification" class="formInput">
@@ -717,6 +718,17 @@
                 }
                 document.getElementById(cityName).style.display = "block";
                 evt.currentTarget.className += " active";
+            }
+            function check(){
+                var pass1 = document.getElementById('mobile');
+                var message = document.getElementById('message');
+                var badColor = "red";
+                if(mobile.value.length!=10){
+                    message.style.color = badColor;
+                    message.innerHTML = "required 10 digits"
+                }else{
+                    message.innerHTML = ""
+                }
             }
         </script>
 

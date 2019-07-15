@@ -1,0 +1,39 @@
+/* overwriting navBar for register page */
+.regdbox{
+    background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
+    height: 100%;
+}
+.box{
+    background: #fff;
+    margin: 200px auto;
+    border-radius: 10px;   
+}
+h2{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+.formInput{
+    width: 100%;
+    height: 45px;
+    margin: 10px 0;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+}
+.formInput:focus{
+    outline: none;
+}
+.tabcontent{
+    padding: 20px;
+}
+.submitButton{
+    width: 50%;
+    height: 45px;
+    margin: 10px 0 0 25%;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
+    color: #fff;
+}
