@@ -63,6 +63,8 @@
 		
         <link rel="stylesheet" href="./../styles/styles.css">
         <link rel="stylesheet" href="./styles/style.css">
+        <title>Test</title>
+
 	</head>
 	<body class="paper">
 		<div>

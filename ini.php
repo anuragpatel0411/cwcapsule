@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 } 
 
 // Create database
-$sql = "CREATE DATABASE cwcapsule";
+$sql = "CREATE DATABASE cwa";
 if ($conn->query($sql) === TRUE) {
     echo "Database created successfully";
 } else {
@@ -23,7 +23,7 @@ $conn->close();
 
 
 
-$con=mysqli_connect("localhost","root","","cwcapsule");
+$con=mysqli_connect("localhost","root","","cwa");
 // Check connection
 if (mysqli_connect_errno())
   {
@@ -62,11 +62,12 @@ $sql .="INSERT INTO `teachertestquestionchoices`(`quesid`, `is_right`, `choice`)
 $sql .="INSERT INTO `teachertestquestionchoices`(`quesid`, `is_right`, `choice`) VALUES (9,TRUE,'Temperature increases');";
 $sql .="INSERT INTO `teachertestquestionchoices`(`quesid`, `is_right`, `choice`) VALUES (9,FALSE,'Light is produced');";
 
-
 $sql .="ALTER TABLE `teachers` ADD `id` VARCHAR(100) NOT NULL DEFAULT 'None' AFTER `documentVerified`, ADD `qualificationCerti` VARCHAR(100) NOT NULL AFTER `id`, ADD `cv` VARCHAR(100) NOT NULL AFTER `qualificationCerti`, ADD `pan` VARCHAR(100) NULL AFTER `cv`, ADD `panno` VARCHAR(20) NULL AFTER `pan`;";
 $sql .="ALTER TABLE `teachers` ADD `documentUpload` BOOLEAN NOT NULL DEFAULT FALSE AFTER `testPass`;";
 
-
+$sql .= "CREATE TABLE admin (adminID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, adminName VARCHAR(30) NOT NULL, email VARCHAR(50) NOT NULL, pass varchar(20) NOT NULL,  registrationDate TIMESTAMP);";
+$sql .= "INSERT INTO `admin`(`adminName`, `email`, `pass`) VALUES ('admin', 'admin@gmail.com', 'admin');";
+echo $sql;
 
 
 // Execute multi query

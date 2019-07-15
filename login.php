@@ -22,7 +22,6 @@
             }
             $conn->close();        
     }
-
     if(isset($_POST['submitTeacher'])){
         $mail = $_POST['email'];
         $pass	= $_POST['pass'];
@@ -41,7 +40,6 @@
     }   
 ?>
 
-
 <html>
 	<head>
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
@@ -49,6 +47,7 @@
 		
         <link rel="stylesheet" href="./styles/styles.css">
         <link rel="stylesheet" href="./styles/registerlogin.css">
+        <title>Login</title>
 	</head>
 	<body class="regdbox">
 		<div>

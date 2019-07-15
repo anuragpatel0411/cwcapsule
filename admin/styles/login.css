@@ -1,42 +1,17 @@
 /* overwriting navBar for register page */
-.default-header{
-    position: static;
-}
 .regdbox{
     background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
     height: 100%;
 }
 .box{
     background: #fff;
-    margin: 100px auto;
+    margin: 200px auto;
     border-radius: 10px;   
 }
-.tab{
-    margin: auto;
-}
-.tablinks{
-    font-size: 25px;
-    background: #fff;
-    border: 0px;
-    border-bottom: 1px solid black;
-    padding: 10px;
-    font-weight: 600;
-    background: #f0f0f0;
-}
-.tab .active{
-    background: #fff;
-}
-.tablinks:nth-child(2){
-    border-left: 1px solid black;
-}
-.tablinks:focus{
-    outline: none;
-}
-.tablink :active{
-    border: 0px;
-}
-.tab .active{
-    border-bottom: 0px;
+h2{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 .formInput{
     width: 100%;
