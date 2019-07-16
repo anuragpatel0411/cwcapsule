@@ -15,7 +15,7 @@
                 $row = $result->fetch_assoc();
                 $_SESSION["username"] = $row["studentName"];
                 $_SESSION["id"] = $row["studentId"];
-                $_SESSION["role"] = "student";
+                $_SESSION["role"] = "students";
                 header('Location: http://localhost/cwcapsule/students/home.php');
             } else {
                 $msg = "Wrong email or password...";
@@ -31,7 +31,7 @@
             $row = $result->fetch_assoc();
             $_SESSION["username"] = $row["teacherName"];
             $_SESSION["id"] = $row["teacherId"];
-            $_SESSION["role"] = "teacher";
+            $_SESSION["role"] = "teachers";
             header('Location: http://localhost/cwcapsule/teachers/home.php');
         } else {
             $msg = "Wrong email or password...";

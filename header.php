@@ -13,7 +13,8 @@
     <nav class="navbar navbar-expand-lg  navbar-light">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="img/logo.png" alt="cwcapsule" />
+                <!-- <img src="img/logo.png" alt="cwcapsule" /> -->
+                <span style="color:#fff;font-size:20px;font-weight:700">CW Capsule</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +23,7 @@
 
             <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                <li><a href="index.php">Home</a></li>
+                <li><a href="http://localhost/cwcapsule/index.php">Home</a></li>
                 <?php
                     if(!$_SESSION){
                         echo "<li><a href=''>Student</a></li>";
@@ -31,13 +32,13 @@
                 ?>
                 <?php
                     if($_SESSION){
-                        if($_SESSION["role"]=='teacher'){
+                        if($_SESSION["role"]=='teachers'){
                                 echo"<li><a href = ''>Answer Questions</a></li>";
                                 echo"<li><a href = ''>Your Answers</a></li>";
                             }
-                        if($_SESSION["role"]=='student'){
-                            echo"<li><a href = ''>Ask Question</a></li>";
-                            echo"<li><a href = ''>Your Questions</a></li>";
+                        if($_SESSION["role"]=='students'){
+                            echo"<li><a href = 'http://localhost/cwcapsule/students/askQuestion.php'>Ask Question</a></li>";
+                            echo"<li><a href = 'http://localhost/cwcapsule/students/yourQuestion.php'>Your Questions</a></li>";
                             }
                     }
                 ?>
@@ -45,14 +46,13 @@
                 <li><a href="contacts.html">Contact Us</a></li>
                 <?php
                     if($_SESSION){
-                        echo "<li>
-                                <form method='post'>
-                                    <input type='submit' class='logout' name='logout' value='Logout'>
-                                </form>
-                             </li>";
+                        echo "<li><a href ='http://localhost/cwcapsule/" . $_SESSION["role"] . "/home.php'>Profile</a></li>";
+                        echo "<form method='post'>
+                                    <li><input type='submit' class='logout' name='logout' value='LOGOUT'><li>
+                                </form> ";
                     }else{
-                        echo"<li><a href = 'login.php'>Login</a></li>";
-                        echo"<li><a href = 'register.php'>Signup</a></li>";
+                        echo"<li><a href = 'http://localhost/cwcapsule/login.php'>Login</a></li>";
+                        echo"<li><a href = 'http://localhost/cwcapsule/register.php'>Signup</a></li>";
                     }
                 ?>
                 </ul>
