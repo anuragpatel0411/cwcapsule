@@ -67,6 +67,8 @@ $sql .="ALTER TABLE `teachers` ADD `documentUpload` BOOLEAN NOT NULL DEFAULT FAL
 
 $sql .= "CREATE TABLE admin (adminID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, adminName VARCHAR(30) NOT NULL, email VARCHAR(50) NOT NULL, pass varchar(20) NOT NULL,  registrationDate TIMESTAMP);";
 $sql .= "INSERT INTO `admin`(`adminName`, `email`, `pass`) VALUES ('admin', 'admin@gmail.com', 'admin');";
+
+$sql .= "create TABLE questionanswer(questionId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, subjectId INT(6) NOT NULL, studentId INT(6) NOT NULL, dateofQuestion TIMESTAMP, question varchar(100), quesAttachment boolean, quesAttachmentFile varchar(50), answerId INT(6), dateOfAnswer varchar(10), teacherId INT(6), rating boolean, answering boolean, answerAttachment boolean, answerAttachmentFile varchar(50));";
 echo $sql;
 
 
