@@ -128,6 +128,99 @@ a:hover {
   font-size: 12px;
   font-weight: 500;
 }
+.body1{
+  font-size:14px;
+  max-width:1920px;
+  margin:0 auto;
+  overflow-x:hidden;
+  background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
+}
+.homeBanner{
+  padding:0px;
+  background: #fff;
+}
+.img1{
+  background: url(../images/bannerHome.png);
+  height: 380px;
+  margin: 4px solid black;
+  padding-bottom: 0px;
+}
+.justify-content-center{
+  padding-top: 90px;
+  margin-top: 30px;
+  padding-bottom: 0px;
+  color:#fff;
+}
+.homeBody{
+  padding-top: 0px;
+  background-color: #fff;
+}
+.intro{
+  padding-top: 50px;
+}
+.intro h1{
+  background:-webkit-linear-gradient( #7f32fe 0%, #bf37dc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: serif;
+  text-transform: capitalize;
+}
+.intro p{
+  font-size: 20px;
+  font-family: sans-serif;
+}
+#std{
+  padding-top: 50px;
+}
+#std h1{
+  background:-webkit-linear-gradient( #7f32fe 0%, #bf37dc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: serif;
+  text-transform: capitalize;
+}
+#std p{
+  font-family: sans-serif;
+  font-size: 20px;
+}
+#tech{
+  padding-top: 50px;
+}
+#tech h1{
+  background:-webkit-linear-gradient( #7f32fe 0%, #bf37dc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: serif;
+  text-transform: capitalize;
+}
+#tech p{
+  font-family: sans-serif;
+  font-size: 20px;
+}
+#about{
+  padding-top: 50px;
+}
+#about h1{
+  background:-webkit-linear-gradient( #7f32fe 0%, #bf37dc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: serif;
+  text-transform: capitalize;
+}
+#about p{
+  font-family: sans-serif;
+  font-size: 20px;
+}
+#contact{
+  padding-top: 50px;
+}
+#contact h1{
+  background:-webkit-linear-gradient( #7f32fe 0%, #bf37dc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: serif;
+  text-transform: capitalize;
+}
 .searchbar{
   padding: 10px;
   padding-left: 0px;
