@@ -25,8 +25,8 @@
                 <li><a href="index.php">Home</a></li>
                 <?php
                     if(!$_SESSION){
-                        echo "<li><a href=''>Student</a></li>";
-                        echo "<li><a href=''>Teacher</a></li>";
+                        echo "<li><a href='#std'>Student</a></li>";
+                        echo "<li><a href='#tech'>Teacher</a></li>";
                     }
                 ?>
                 <?php
@@ -41,7 +41,7 @@
                             }
                     }
                 ?>
-                <li><a href="#">About Us</a></li>
+                <li><a href="#about">About Us</a></li>
                 <li><a href="contacts.html">Contact Us</a></li>
                 <?php
                     if($_SESSION){
