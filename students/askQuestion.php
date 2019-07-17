@@ -101,7 +101,7 @@
                             $sql = "SELECT * FROM subjects";
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
-                                echo "<select name='subs'>";
+                                echo "<select name='subs' class='formInput'>";
                                 while($row = $result->fetch_assoc()) {
                                     echo "<option value='" . $row["subjectId"] . "'>" . $row["subjectName"] . "</option>";
                                 }
@@ -111,11 +111,15 @@
                             }
                         ?>
                     </div>
-                    <textarea name="question" placeholder="Type your question here" class="textQues"></textarea>
+                    <textarea name="question" placeholder="Type your question here..." class="textQues"></textarea>
                     <div>
-                        <input type="file" id="attach" name="attach">
+                        <div class="custom-file col-12 col-md-6">
+                            <input type="file" class="custom-file-input" id="attach" name="attach">
+                            <label class="custom-file-label" for="attach">Choose file</label>
+                        </div> (*.jpg, *.jpeg, *.png, *.docs, *.pdf)
+                        <div style="color:blue"><?php echo $err;?></div>
                     </div>
-                    <input type="submit" name="submitQues" value="Add Question">
+                    <input type="submit" name="submitQues" value="Add Question" class="submitQues">
                 </form>
             </div>
         </div>

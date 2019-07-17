@@ -4,9 +4,9 @@
 }
 .box{
     background: #fff;
-    margin: 50px auto;
+    margin: 30px auto;
     border-radius: 10px;   
-    margin-top: 100px;
+    margin-top: 60px;
 }
 h2{
     text-align: center;
@@ -17,13 +17,7 @@ p{
     padding: 5px 10px 0 20px;
     margin: 0;
 }
-input[type=button]{
-    margin: 10px;
-    text-align: center;
-    color: #fff;
-    background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
-}
-input[type=submit]{
+.btn{
     margin: 10px;
     text-align: center;
     color: #fff;

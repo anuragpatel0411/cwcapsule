@@ -128,5 +128,13 @@ a:hover {
   font-size: 12px;
   font-weight: 500;
 }
-    
-  
+.searchbar{
+  padding: 10px;
+  padding-left: 0px;
+}
+.search{
+  border-radius: 5px;
+  padding-left: 10px;
+  border: 1px solid #ced4da;
+  height: 30px;
+}

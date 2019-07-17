@@ -8,7 +8,7 @@
     $msg = "";
     if(isset($_POST['submit'])){
         $id = $_SESSION["id"];
-        $sql = "SELECT pass FROM students WHERE studentId= '$id'";
+        $sql = "SELECT pass FROM teachers WHERE teacherId= '$id'";
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
 
@@ -18,7 +18,7 @@
 
         if($row["pass"] == $opass){
             if($pass == $repass){
-                $sql = $conn->prepare("UPDATE students SET  pass = ? WHERE studentId = ?");
+                $sql = $conn->prepare("UPDATE teachers SET  pass = ? WHERE teacherId = ?");
                 $sql->bind_param("ss", $pass, $id);
                 $sql->execute();
                 $conn->close();
@@ -46,20 +46,20 @@
             <?php include './../header.php' ?>   
         </div>
         <div class="container box">
-            <form method="post" align="center" class="pass">
-                <h3>Change Password</h3>
+            <form method="post">
+                <h3>Update Password</h3>
                 <h4 style="color:blue;"><?php echo $msg; ?></h4>
                 <div>
-                    <input type="password" name="oldpass" class="formInput" placeholder="Current Password">
+                    <input type="password" name="oldpass" placeholder="Current Password">
                 </div>
                 <div>
-                    <input type="password" name="newpass" class="formInput" placeholder="New Password">
+                    <input type="password" name="newpass" placeholder="New Password">
                 </div>
                 <div>
-                    <input type="password" name="repass" class="formInput" placeholder="Retype New Password">
+                    <input type="password" name="repass" placeholder="Retype New Password">
                 </div>
                 <div>
-                    <input type="submit" name="submit" class="submitPass" value="Change Password">
+                    <input type="submit" name="submit" value="Change Password">
                 </div>
             </form>        
         </div>

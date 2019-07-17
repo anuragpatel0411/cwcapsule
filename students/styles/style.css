@@ -20,6 +20,7 @@
 }
 .answer{
   margin-top: 20px;
+  margin-bottom: 20px;
   padding: 20px;
   border: 2px solid #111;
   border-radius: 20px;
@@ -43,4 +44,52 @@ th {
   background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
 
   color: white;
+}
+
+.formInput{
+  width: 200px;
+  height: 45px;
+  margin: 10px 0;
+  padding-left: 10px;
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+}
+.formInput:focus{
+  outline: none;
+}
+.submitQues{
+  width: 30%;
+  height: 45px;
+  margin: 10px 0 0 35%;
+  padding-left: 10px;
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+  background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
+  color: #fff;
+}
+.textQues{
+  width: 100%;
+  border-radius: 10px;
+  margin:5px 0px;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+  margin-bottom: 15px;
+}
+.custom-file{
+  width: 200px;
+  margin-bottom: 10px;
+}
+.submitPass{
+    width: 200px;
+    height: 45px;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
+    color: #fff;
+}
+.pass .formInput{
+  width: 400px;
 }
