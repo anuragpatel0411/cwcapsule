@@ -10,8 +10,14 @@
             $sql = $conn->prepare("INSERT INTO subjects(subjectName) VALUES(?)");
             $sql->bind_param("s", $sname);
             $sql->execute();
+            
+            mkdir("./../questionanswer/". $sname);
+            mkdir("./../questionanswer/" . $sname . "/answers");
+            mkdir("./../questionanswer/" . $sname . "/questions");
+            mkdir("./../questionanswer/" . $sname . "/attachments");
+
             $msg = 'Subject Successfully added..';
-            header("Location: http://localhost/cwcapsule/admin/subjects.php");  
+            // header("Location: http://localhost/cwcapsule/admin/subjects.php");  
             $conn->close();
         }else{
             $msg = "Enter all Fields";
@@ -103,7 +109,7 @@
                     $.post("deleteData.php", {subid: id, category: 'subjects',attribute: 'subjectId'},function(data){
                         alert(data);
                     });
-                    location.reload(1);
+                    location.reload(0);
                 }
             }
         </script>
