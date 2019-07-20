@@ -33,8 +33,8 @@
                 <?php
                     if($_SESSION){
                         if($_SESSION["role"]=='teachers'){
-                                echo"<li><a href = ''>Answer Questions</a></li>";
-                                echo"<li><a href = ''>Your Answers</a></li>";
+                                echo"<li><a href = 'http://localhost/cwcapsule/teachers/answerQuestion.php'>Answer Questions</a></li>";
+                                echo"<li><a href = 'http://localhost/cwcapsule/teachers/yourAnswers.php'>Your Answers</a></li>";
                             }
                         if($_SESSION["role"]=='students'){
                             echo"<li><a href = 'http://localhost/cwcapsule/students/askQuestion.php'>Ask Question</a></li>";
@@ -43,7 +43,7 @@
                     }
                 ?>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="contacts.html">Contact Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
                 <?php
                     if($_SESSION){
                         echo "<li><a href ='http://localhost/cwcapsule/" . $_SESSION["role"] . "/home.php'>Profile</a></li>";
