@@ -32,6 +32,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Mobile No.</th>
+                                <th>Subject</th>
                                 <th>Mail Verified</th>
                                 <th>Test Pass</th>
                                 <th>Document Uploaded</th>
@@ -47,6 +48,11 @@
                                         echo "<td>" . $row["teacherName"] . "</td>";
                                         echo "<td>" . $row["email"] . "</td>";
                                         echo "<td>" . $row["mobile"] . "</td>";
+                                        $othersub = 'none';
+                                        if($row["subject"] == 'Others'){
+                                            $othersub = 'red';
+                                        }
+                                        echo "<td style='background:" . $othersub . "'>" . $row["subject"] . "</td>";
                                         if($row["mailVerified"]==1){
                                             echo "<td>Yes</td>";
                                         }else{
@@ -96,6 +102,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Mobile No.</th>
+                                <th>Subject</th>
                                 <th></th>
                             </thead>
                             <?php
@@ -107,6 +114,7 @@
                                         echo "<td>" . $row["teacherName"] . "</td>";
                                         echo "<td>" . $row["email"] . "</td>";
                                         echo "<td>" . $row["mobile"] . "</td>";
+                                        echo "<td>" . $row["subject"] . "</td>";
                                         echo "<td><a href='teacherDetail.php?id=" . $row["teacherId"] . "&name=" . $row["teacherName"] . "'>View &#x1F4DD; </a>";
                                         // echo "<span style='color:red;' onclick = 'deleteSubject(".$id.")'>Delete &#10006;</span>"
                                         ECHO "</td>";

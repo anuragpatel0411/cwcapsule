@@ -68,7 +68,7 @@
         $txt = "<pre>" . $ques . "</pre>";
 
         fwrite($myfile, $txt);
-        fclose($myfile);      
+        fclose($myfile);
         // header("Location: http://localhost/cwcapsule/students/responseOK.php");        
     }
 ?>

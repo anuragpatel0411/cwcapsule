@@ -72,8 +72,8 @@
                         <span class="col-12">
                             <input type="submit" class="submitButton" value="Login" name="submitStudent">
                         </span>
-
                     </form>
+                    <div style="font-size:12px;color:blue;text-align:center"><a href="register.php">Don't have account? Register</a></div>           
                 </div>
 
                 <div id="teacher" style="display:none;" class="tabcontent">            
@@ -88,9 +88,9 @@
                             <input type="submit" class="submitButton" value="Login" name="submitTeacher">
                         </span>
 
-                    </form>                
+                    </form>     
+                    <div style="font-size:12px;color:blue;text-align:center"><a href="register.php">Don't have account? Register</a></div>           
                 </div>
-
 
             </div>
         </div>
