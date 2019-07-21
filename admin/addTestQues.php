@@ -4,7 +4,61 @@
     if($conn->connect_error){
         die("Connection failed: ".$conn->connect_error);
     }
-    if(isset($_POST['submitAns'])){}
+    $err = "";
+    $subjectId = $_GET["sid"];
+    if(isset($_POST["submitQues"])){
+        $ques = $_POST["ques"];
+        $opt1 = $_POST["opt1"];
+        $opt2 = $_POST["opt2"];
+        $opt3 = $_POST["opt3"];
+        $opt4 = $_POST["opt4"];
+        $rtyAns = $_POST["rytAns"];
+        if($rytAns == "a"){
+            $r1 = TRUE;
+            $r2 = FALSE;
+            $r3 = FALSE;
+            $r4 = FALSE;
+        }
+        elseif($rytAns == "b"){
+            $r1 = FALSE;
+            $r2 = TRUE;
+            $r3 = FALSE;
+            $r4 = FALSE;
+        }
+        elseif($rytAns == "c"){
+            $r1 = FALSE;
+            $r2 = FALSE;
+            $r3 = TRUE;
+            $r4 = FALSE;
+        }
+        elseif($rytAns == "d"){
+            $r1 = FALSE;
+            $r2 = FALSE;
+            $r3 = FALSE;
+            $r4 = TRUE; 
+        }
+        if($ques! = NULL  && opt1! = NULL && opt2! = NULL && opt3! = NULL && opt4! = NULL && rtyAns! = NULL){
+            $sql = "INSERT INTO teachertestquestions (subjectId,question) VALUES ('$subjectId','$ques')" ;
+            if ($conn->query($sql) === TRUE) {
+                $last_id = $conn->insert_id;
+                $sql2 = "INSERT INTO teachertestquestionchoices(quesid,is_right,choice) VALUES ($last_id,$r1,$opt1)";
+                $sql3 = "INSERT INTO teachertestquestionchoices(quesid,is_right,choice) VALUES ($last_id,$r2,$opt2)";
+                $sql4 = "INSERT INTO teachertestquestionchoices(quesid,is_right,choice) VALUES ($last_id,$r3,$opt3)";
+                $sql5 = "INSERT INTO teachertestquestionchoices(quesid,is_right,choice) VALUES ($last_id,$r4,$opt4)";
+                $conn->query($sql2);
+                $conn->query($sql3);
+                $conn->query($sql4);
+                $conn->query($sql5);
+                header("Location: http://localhost/cwcapsule/admin/responseOk.php");
+            } 
+            else {
+                $err = "Error in uploading data";
+            }
+        }
+        else{
+            $err = "All fields are required";
+        }
+    }
 ?>
 <html>
     <head>
@@ -23,49 +77,11 @@
                     </h1>
                 </div>
                 <?php
-                    $opt1Err="";
-                    $opt1="";
-                    $opt2Err="";
-                    $opt2="";
-                    $opt3Err="";
-                    $opt3="";
-                    $opt4Err="";
-                    $opt4="";
-                    if($_SERVER["REQUEST_METHOD"]=="POST"){
-                        if(empty($_POST["opt1"])){
-                            $opt1Err = "Option 1 is mandatory";
-                        }
-                        else{
-                            $opt1 = test_input($_POST["opt1"]);
-                        }
-                        if(empty($_POST["opt2"])){
-                            $opt2Err = "Option 2 is mandatory";
-                        }
-                        else{
-                            $opt2 = test_input($_POST["opt2"]);
-                        }
-                        if(empty($_POST["opt3"])){
-                            $opt3Err = "Option 3 is mandatory";
-                        }
-                        else{
-                            $opt3 = test_input($_POST["opt3"]);
-                        }
-                        if(empty($_POST["opt4"])){
-                            $opt1Err = "Option 4 is mandatory";
-                        }
-                        else{
-                            $opt1 = test_input($_POST["opt4"]);
-                        }
-                    }
-                    function test_input($data){
-                        $data = trim($data);
-                        $data = stripslashes($data);
-                        $data = htmlspecialchars($data);
-                        return $data;
-                    }
+                   
                 ?>                
-                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <form method="post">
                     <div class="row">
+                        <div style="color:red;text-align:center;"><?php echo $err; ?></div>
                         <div class="col-12">
                             <textarea name="ques" placeholder="Type the question here...." class=""></textarea>
                         </div>
@@ -85,7 +101,7 @@
                             <input type="text" name="rytAns" placeholder="Type the right option" class="formInput">
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 box">
-                            <input type="submit" name="submitAns" value="Add Question" class="textQues">
+                            <input type="submit" name="submitQues" value="Add Question" class="textQues">
                         </div>
                     </div>
                 </form>
