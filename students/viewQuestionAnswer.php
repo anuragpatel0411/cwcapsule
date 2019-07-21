@@ -17,15 +17,29 @@
     if($row["answerId"] == NULL){
         $answerShow = "none";
     }
+
+    //like_dislike
+    $likecolor = "none";
+    $dislikecolor = "none";
+    
+    if($row["rating"] == '1'){
+        $likecolor = "blue";
+        $dislikecolor = "none";
+    }
+    if($row["rating"] == '0'){
+        $likecolor = "none";
+        $dislikecolor = "red";
+    }
 ?>
 <html>
 	<head>
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
 		<link rel="stylesheet" href="./../styles/bootstrap.css">
-		
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
+
         <link rel="stylesheet" href="./../styles/styles.css">
         <link rel="stylesheet" href="./styles/style.css">
-        <link rel="stylesheet" href="./styles/registerlogin.css">
         <title>Your Question</title>
 	</head>
 	<body>
@@ -45,6 +59,8 @@
             </div>  
             <div class="answer" style="display:<?php echo $answerShow; ?>">
                 <h5><u>Answer:</u></h5>
+                <span onclick="like('<?php echo $row['questionId']; ?>','1')"><i class="material-icons" style="font-size:36px;color:<?php echo $likecolor;?>">thumb_up</i></span>
+                <span onclick="like('<?php echo $row['questionId']; ?>','0')"><i class="material-icons" style="font-size:36px;color:<?php echo $dislikecolor;?>">thumb_down</i></span>
                 <?php 
                     include $answer;
                     if($row["answerAttachment"] == '1'){
@@ -54,5 +70,15 @@
                 ?>
             </div>  
         </div>
+
+        <script>
+            function like(id, type){
+                $.post("likeDislike.php", {id: id, type: type},function(data){
+                    // alert(data);
+                });
+                location.reload(1);
+            }
+        </script>
+
 	</body>
 </html>

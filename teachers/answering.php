@@ -1,5 +1,7 @@
 <?php
+    session_start();
     $questionId = $_GET["qid"];
+    $teacherId = $_SESSION["id"];
     $sub = $_GET["sName"];
     $question = "./../questionanswer/" . $sub . "/questions/" . $questionId . ".html";
     $conn = new mysqli("localhost", "root", "", "cwcapsule");
@@ -12,20 +14,19 @@
     $err="";
     if(isset($_POST['submitAns'])){
         $ans = $_POST['answer'];
-        $teacherId = $_SESSION["id"];
 
         $attachment = FALSE;
         $attachmentName = "";
+        $uploadOk = 1;
 
         $target_dir = "./../questionanswer/" . $sub . "/attachments/";
         $name = basename($_FILES["attach"]["name"]);
         if($name){
             $attachmentName = basename($_FILES["attach"]["name"]);
             $target_file = $target_dir . basename($_FILES["attach"]["name"]);
-            $uploadOk = 1;
             $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
             
-            if ($_FILES["attach"]["size"] > 500000) {
+            if ($_FILES["attach"]["size"] > 4000000) {
                 $err .= "Sorry, your file is too large.<br>";
                 $uploadOk = 0;
             }else{
@@ -48,21 +49,23 @@
                 }
             }
         }
-        $date=date("Y/m/d");
-        //store in database
-        $sql = $conn->prepare("UPDATE questionanswer SET answerId=?, dateOfAnswer=?, teacherId=?, answering='0', answerAttachment=?, answerAttachmentFile=? WHERE questionId=?");
-        $sql->bind_param("issssi", $questionId, $date, $teacherId, $attachment, $attachementName, $questionId);
-        $sql->execute();
+        if($uploadOk == 1){
+            $date=date("Y/m/d");
+            //store in database
+            $sql = $conn->prepare("UPDATE questionanswer SET answerId=?, dateOfAnswer=?, teacherId=?, answering='0', answerAttachment=?, answerAttachmentFile=? WHERE questionId=?");
+            $sql->bind_param("issssi", $questionId, $date, $teacherId, $attachment, $attachementName, $questionId);
+            $sql->execute();
 
-        
-        $conn->close();
+            
+            $conn->close();
 
-        $myfile = fopen(".\\..\\questionanswer\\".$sub . "\\answers\\" . $questionId . ".html", "w") or die("Unable to open file!");
-        $txt = "<pre>" . $ans . "</pre>";
+            $myfile = fopen(".\\..\\questionanswer\\".$sub . "\\answers\\" . $questionId . ".html", "w") or die("Unable to open file!");
+            $txt = "<pre>" . $ans . "</pre>";
 
-        fwrite($myfile, $txt);
-        fclose($myfile);      
-        // header("Location: http://localhost/cwcapsule/students/responseOK.php");        
+            fwrite($myfile, $txt);
+            fclose($myfile);      
+            header("Location: http://localhost/cwcapsule/students/responseOK.php"); 
+        }
     }
 ?>
     
@@ -73,7 +76,7 @@
 		
         <link rel="stylesheet" href="./../styles/styles.css">
         <link rel="stylesheet" href="./styles/style.css">
-        <link rel="stylesheet" href="./styles/registerlogin.css">
+        <link rel="stylesheet" href="./../styles/registerlogin.css">
         <title>Your Question</title>
 	</head>
 	<body>
@@ -93,6 +96,7 @@
             </div>
             <form method="post" enctype="multipart/form-data">
                 <div class="answer">
+                    <h4>Answer:</h4>
                     <textarea name="answer" placeholder="Type your answer here..." class="anstext"></textarea>
                     <div>
                         <div class="custom-file col-12 col-md-6">
@@ -104,6 +108,10 @@
                     <input type="submit" name="submitAns" value="Add Answer" class="submitAns">
                 </div>
             </form> 
+        </div>
+        
+        <div>
+            <?php include './../footer.php' ?>   
         </div>
 	</body>
 </html>

@@ -406,8 +406,8 @@
                         <span class="col-12 col-md-12 ">
                             <input type="submit" class="submitButton" value="Register" name="submitStudent">
                         </span>
-
                     </form>
+                    <div style="font-size:12px;color:blue;text-align:center"><a href="login.php">Already have account? Login</a></div>           
                 </div>
 
                 <div id="teacher" style="display:none;" class="tabcontent">            
@@ -645,7 +645,7 @@
                                 </select>
                         </span>
                         <span class="col-12 col-md-6">
-                            <input name="mobile" class="formInput" placeholder="Mobile No." id="mobile" type="text" required onkeyup="check(); return false;" ><span id="message"></span>
+                            <input name="mobile" class="formInput" placeholder="Mobile No." id="mobile" type="text" required onkeyup="check();" ><span id="message"></span>
                         </span>
                         <span class="col-12 col-md-6">
                             <select name="qualification" class="formInput">
@@ -691,8 +691,8 @@
                         <span class="col-12 col-md-12 ">
                             <input type="submit" class="submitButton" value="Register" name="submitTeacher">
                         </span>
-
-                    </form>              
+                    </form>    
+                    <div style="font-size:12px;color:blue;text-align:center"><a href="login.php">Already have account? Login</a></div>           
                 </div>
 
 

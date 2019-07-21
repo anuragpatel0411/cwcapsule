@@ -37,5 +37,9 @@
                 <a href="http://localhost/cwcapsule">Home</a>
             </div>
         </div>
+        
+        <div>
+            <?php include './../footer.php' ?>   
+        </div>
 	</body>
 </html>

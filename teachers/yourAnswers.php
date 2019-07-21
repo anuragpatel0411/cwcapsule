@@ -4,6 +4,12 @@
 ?>
 <html>
     <head>
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+		<link rel="stylesheet" href="./../styles/bootstrap.css">
+		
+        <link rel="stylesheet" href="./../styles/styles.css">
+        <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./../styles/registerlogin.css">
         <title>Your Answered Questions</title>
     </head>
     <body>
@@ -30,7 +36,7 @@
                         $sId = $row["subjectId"]; 
                         $sName = $row["subjectName"];   
                     }
-                     $sql = "SELECT * FROM questionanswer WHERE subjectId = '$sId' AND answerId IS NOT NULL";
+                     $sql = "SELECT * FROM questionanswer WHERE teacherId = '$id' AND answerId IS NOT NULL";
                      $result = $conn->query($sql);
                 ?>
                  <table id="detailTable2">
@@ -62,5 +68,8 @@
                     </table>   
              </div>
          </div>
+        <div>
+            <?php include './../footer.php' ?>   
+        </div>
      </body>
  </html>
