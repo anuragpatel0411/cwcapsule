@@ -6,7 +6,7 @@
     background: #fff;
     margin: 30px auto;
     border-radius: 10px;   
-    margin-top: 100px;
+    margin-top: 60px;
 }
 h2{
     text-align: center;
@@ -50,8 +50,83 @@ p{
 }
 body{
     font-size:14px;
-    background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
     max-width:1920px;
     margin:0 auto;
     overflow-x:hidden;
 }
+/* tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2
+}
+th {
+    background-color: #4CAF50;
+    background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
+    color: white;
+}
+.formInput{
+    width: 200px;
+    height: 45px;
+    margin: 10px 0;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+  }
+  .formInput:focus{
+    outline: none;
+  }
+  .submitAns{
+    width: 30%;
+    height: 45px;
+    margin: 10px 0 0 35%;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
+    color: #fff;
+  }
+  .submitPass{
+    width: 200px;
+    height: 45px;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
+    color: #fff;
+}
+.pass .formInput{
+  width: 400px;
+}
+
+.question{
+    margin-top: 100px;
+    padding: 20px;
+    border: 2px solid #111;
+    border-radius: 20px;
+  }
+  .answer{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 2px solid #111;
+    border-radius: 20px;
+  }
+  .anstext{
+        width: 100%;
+        border-radius: 10px;
+        margin:5px 0px;
+        height: 150px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        background-color: #f8f8f8;
+        margin-bottom: 15px;
+  }

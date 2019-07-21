@@ -3,7 +3,13 @@
     $id = $_SESSION["id"]
 ?>
 <html>
-    <head>
+    <head> 
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+		<link rel="stylesheet" href="./../styles/bootstrap.css">
+		
+        <link rel="stylesheet" href="./../styles/styles.css">
+        <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./../styles/registerlogin.css">
         <title>Answer Questions</title>
     </head>
     <body>
@@ -62,5 +68,9 @@
                     </table>   
              </div>
          </div>
+         
+        <div>
+            <?php include './../footer.php' ?>   
+        </div>
      </body>
  </html>

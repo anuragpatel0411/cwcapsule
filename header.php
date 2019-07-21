@@ -42,8 +42,8 @@
                             }
                     }
                 ?>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="http://localhost/cwcapsule/index.php#about">About Us</a></li>
+                <li><a href="http://localhost/cwcapsule/index.php#contact">Contact Us</a></li>
                 <?php
                     if($_SESSION){
                         echo "<li><a href ='http://localhost/cwcapsule/" . $_SESSION["role"] . "/home.php'>Profile</a></li>";

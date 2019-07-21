@@ -48,7 +48,7 @@
 		
         <link rel="stylesheet" href="./../styles/styles.css">
         <link rel="stylesheet" href="./styles/style.css">
-        <link rel="stylesheet" href="./styles/registerlogin.css">
+        <link rel="stylesheet" href="./../styles/registerlogin.css">
         <title>Your Question</title>
 	</head>
 	<body>
@@ -81,6 +81,10 @@
                     <input type="submit" value="Answer" name="submit">
                </form>
             </div>  
+        </div>
+        
+        <div>
+            <?php include './../footer.php' ?>   
         </div>
 	</body>
 </html>
