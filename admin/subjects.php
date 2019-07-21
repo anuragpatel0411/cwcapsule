@@ -37,7 +37,9 @@
     </head>
     <body>
         <div>
-            <?php include 'header.php';?>
+            <div>
+                <?php include 'header.php';?>
+            </div>
             <div class="container box">
                 <h3>Subjects</h3>
 
@@ -81,9 +83,41 @@
                                 echo "</tr>";
                             }
                         }
-                        $conn->close();
                     ?>
                 </table>
+
+                <!-- questions of test -->
+                <h3>Test Questions</h3>
+                <table id="detailTable1">
+                    <thead>   
+                        <th>Subject Name</th>
+                        <th>No of Questions</th>
+                        <th></th>
+                    </thead>
+                    <?php
+                        $sql = "SELECT * FROM subjects ORDER BY subjectName ASC";
+                        $result = $conn->query($sql);
+                        if($result->num_rows > 0) {
+                            while($row = $result->fetch_assoc()){
+                                echo "<tr>";
+                                echo "<td>" . $row["subjectName"] . "</td>";
+
+                                $sid = $row["subjectId"];
+                                $sql2 = "SELECT COUNT(quesid) FROM teachertestquestions WHERE subjectid = '$sid'";
+                                $result2 = $conn->query($sql2);
+                                $row2 = $result2->fetch_assoc();
+
+                                echo "<td>" . $row2["COUNT(quesid)"] . "</td>";
+                                echo "<td>";
+                                echo "<a href='viewTestQuestions.php?sid=" . $row["subjectId"]. "'>View &#x1F4DD; </a>";
+                                echo "&nbsp; &nbsp;";
+                                echo "<a href='addTestQues.php?sid=" . $row["subjectId"] . "'><span style='color:red;' onclick = 'deleteSubject(".$id.")'>Add Questions <span style='font-size:20;font-weight:9&#x2b;00'>+</span></span></a></td>";
+                                echo "</tr>";
+                            }
+                        }
+                    ?>
+                </table>
+                
             </div>
         </div>
 

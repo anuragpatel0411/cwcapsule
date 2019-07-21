@@ -3,6 +3,7 @@
 		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
 		<link rel="stylesheet" href="./styles/bootstrap.css">
 		<link rel="stylesheet" href="./styles/styles.css">
+		<link rel="stylesheet" href="./styles/registerlogin.css">
 	</head>
 	<body class="body1">
 		<?php include 'header.php' ?>
@@ -110,44 +111,42 @@
 										Leave Us a Message Here
 									</h3>
 								</div>
-								<form>
+								<form method="post">
 									<div class="row">
 										<div class="col-sm-6 col-xs-12">
 											<div>
-												<input type="text" id="fname" placeholder="First Name" name="fname">
+												<input type="text" id="fname" class="formInput" placeholder="First Name" name="fname">
 											</div>
 										</div>
 										<div class="col-sm-6 col-xs-12">
 											<div>
-												<input type="text" id="lname" placeholder="Last Name" name="lname">
+												<input type="text" id="lname" class="formInput" placeholder="Last Name" name="lname">
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-6 col-xs-12">
 											<div>
-												<input type="email" id="email" placeholder="Email Address " name="email">
+												<input type="email" id="email" class="formInput" placeholder="Email Address " name="email">
                                             </div>
 										</div>
 										<div class="col-sm-6 col-xs-12">
 											<div>
-												<input type="text" id="phone" placeholder="Telephone Number" name="phone">
+												<input type="text" id="phone" class="formInput" placeholder="Telephone Number" name="phone">
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-12">
 											<div>
-												<textarea rows="7" id="msg" placeholder="Type Your Message Here..." name="msg"></textarea>
+												<textarea rows="7" id="msg" class="formInput" placeholder="Type Your Message Here..." name="msg"></textarea>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-12">
 											<div>
-												<button>
-													Send Message
-												</button>
+												<input type="submit" class="submitButton" value="Send Message" name="submitTeacher">
 											</div>
 										</div>
 									</div>
@@ -157,5 +156,6 @@
 					</div>
 				</div>
 			</div>
+		<?php include 'footer.php' ?>
 	</body>
 </html>

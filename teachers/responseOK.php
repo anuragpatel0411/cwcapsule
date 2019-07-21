@@ -19,5 +19,9 @@
                 <div><a href= 'http://localhost/cwcapsule/students/home.php'>Click to go back</a></div>
             </div>
         </div>
+        
+        <div>
+            <?php include './../footer.php' ?>   
+        </div>
 	</body>
 </html>

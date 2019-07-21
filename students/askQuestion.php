@@ -18,16 +18,16 @@
         $attachment = FALSE;
         $attachmentName = "";
         $question = substr($ques,0,100);
+        $uploadOk = 1;
 
         $target_dir = "./../questionanswer/" . $sub . "/attachments/";
         $name = basename($_FILES["attach"]["name"]);
         if($name){
             $attachmentName = basename($_FILES["attach"]["name"]);
             $target_file = $target_dir . basename($_FILES["attach"]["name"]);
-            $uploadOk = 1;
             $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
             
-            if ($_FILES["attach"]["size"] > 500000) {
+            if ($_FILES["attach"]["size"] > 4000000) {
                 $err .= "Sorry, your file is too large.<br>";
                 $uploadOk = 0;
             }else{
@@ -51,25 +51,27 @@
             }
         }
 
-        //store in database
-        $sql = $conn->prepare("INSERT INTO questionanswer(subjectId, studentId, question, quesAttachment, quesAttachmentFile) VALUES(?, ?, ?, ?, ?)");
-        $sql->bind_param("iisss", $subjectId, $studentId, $question, $attachment, $attachementName);
-        $sql->execute();
+        if($uploadOk == 1){
+            //store in database
+            $sql = $conn->prepare("INSERT INTO questionanswer(subjectId, studentId, question, quesAttachment, quesAttachmentFile) VALUES(?, ?, ?, ?, ?)");
+            $sql->bind_param("iisss", $subjectId, $studentId, $question, $attachment, $attachementName);
+            $sql->execute();
 
-        //get id of saved question
-        $sql = "SELECT questionId FROM questionanswer WHERE question = '$question'";
-        $result = $conn->query($sql);
-        while($row = $result->fetch_assoc()){
-            $id= $row["questionId"];
-        }
-        $conn->close();
+            //get id of saved question
+            $sql = "SELECT questionId FROM questionanswer WHERE question = '$question'";
+            $result = $conn->query($sql);
+            while($row = $result->fetch_assoc()){
+                $id= $row["questionId"];
+            }
+            $conn->close();
 
-        $myfile = fopen(".\\..\\questionanswer\\".$sub . "\\questions\\" . $id . ".html", "w") or die("Unable to open file!");
-        $txt = "<pre>" . $ques . "</pre>";
+            $myfile = fopen(".\\..\\questionanswer\\".$sub . "\\questions\\" . $id . ".html", "w") or die("Unable to open file!");
+            $txt = "<pre>" . $ques . "</pre>";
 
-        fwrite($myfile, $txt);
-        fclose($myfile);      
-        // header("Location: http://localhost/cwcapsule/students/responseOK.php");        
+            fwrite($myfile, $txt);
+            fclose($myfile);
+            header("Location: http://localhost/cwcapsule/students/responseOK.php");     
+        }   
     }
 ?>
 <html>
@@ -122,6 +124,12 @@
                     <input type="submit" name="submitQues" value="Add Question" class="submitQues">
                 </form>
             </div>
-        </div>
+        </div>        
+        <script>
+            $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            });
+        </script>
 	</body>
 </html>

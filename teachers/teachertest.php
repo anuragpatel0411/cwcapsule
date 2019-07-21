@@ -15,6 +15,15 @@
         if($row["testPass"] == TRUE){
             header('Location: http://localhost/cwcapsule/teachers/documentUpload.php?id='.$id);
         }
+        
+        //for others category
+        $dispmsg = 'none';
+        $disptest = 'block';
+        if($sub == 'Others'){
+            $dispmsg = 'block';
+            $disptest = 'none';
+        }
+
         $sql = "SELECT subjectId FROM subjects where subjectName = '$sub'";
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
@@ -70,7 +79,7 @@
 		<div>
             <?php include './../header.php' ?>   
         </div>
-        <div class="row">
+        <div class="row" style="display:<?php echo $disptest;?>">
             <div class="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-8 box tabcontent">
                 <p style="color:red"><?php echo $msg;?></p>
                 <h2>Eligiblity Test</h2>
@@ -111,6 +120,9 @@
                 </form>
             </div>
         </div>
+        <div class="container box" style="display:<?php echo $dispmsg;?>">
+            Administrator will contact you soon for your subject.
+        </div>
 
         <script>
             function change(evt, events) {
@@ -128,5 +140,9 @@
             }
         </script>
 
+        
+        <div>
+            <?php include './../footer.php' ?>   
+        </div>
 	</body>
 </html>
