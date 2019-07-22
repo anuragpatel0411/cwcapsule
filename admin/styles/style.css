@@ -1,8 +1,33 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+li {
+    float: left;
+}
+.logout{
+    background: none;
+    border: none;
+}
+li a , .logout{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover , .logout:hover{
+    text-decoration: none;
+    background-color: #111;
+}
 .lis{
     list-style-type: decimal;
 }   
 .liop{
-    list-style-type:lower-alpha; 
+    list-style-type: lower-alpha;
     margin-left: 20px;
 }
 .card{

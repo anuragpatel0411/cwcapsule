@@ -240,7 +240,7 @@ padding-top: 50px;
 margin-top: 10px;
 }
 .hm-footer-widget{
-padding-bottom:30px;
+padding-bottom:10px;
 }
 
 /* hm-foot-title */
@@ -252,7 +252,7 @@ font-family: 'Playfair Display', serif;
 text-transform: capitalize;
 }
 .hm-foot-title .logo{
-margin-bottom: 32px;
+margin-bottom: 5px;
 }
 .hm-foot-para p{
 color:#aaa;
