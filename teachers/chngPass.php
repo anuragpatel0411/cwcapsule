@@ -38,14 +38,14 @@
 		
         <link rel="stylesheet" href="./../styles/styles.css">
         <link rel="stylesheet" href="./styles/style.css">
-        <link rel="stylesheet" href="./styles/registerlogin.css">
+        <link rel="stylesheet" href="./../styles/registerlogin.css">
         <title>Question</title>
 	</head>
 	<body>
 		<div>
             <?php include './../header.php' ?>   
         </div>
-        <div class="container box">
+        <div class="container box col-xs-10 col-lg-4">
             <form method="post" align="center" class="pass">
                 <h3>Change Password</h3>
                 <h4 style="color:blue;"><?php echo $msg; ?></h4>

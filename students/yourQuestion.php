@@ -9,18 +9,20 @@
 		
         <link rel="stylesheet" href="./../styles/styles.css">
         <link rel="stylesheet" href="./styles/style.css">
-        <link rel="stylesheet" href="./styles/registerlogin.css">
+        <link rel="stylesheet" href="./../styles/registerlogin.css">
         <title>Your Question</title>
 	</head>
 	<body>
 		<div>
             <?php include './../header.php' ?>   
         </div>
+
+        <h2 class="quhead">Your Questions</h2>
+
         <div class="container box">
-            <h3>Your Questions</h3>
             <div class="row">
                 <div class="unanswerd col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <h4>Unanswerd...</h4>
+                    <h4 class="theader">Unanswered</h4>
                     <div class="searchbar">
                         <input type="text" id="search2" placeholder="Type Your Search..." class="search">
                     </div>
@@ -63,7 +65,7 @@
                     </table>
                 </div>
                 <div class="answerd col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <h4>Answerd...</h4>
+                    <h4 class="theader">Answered</h4>
                     <div class="searchbar">
                         <input type="text" id="search" placeholder="Type Your Search..." class="search">
                     </div>
@@ -107,6 +109,8 @@
                 </div>
             </div>         
         </div>
+        
+		<?php include './../footer.php' ?>
 
         <script>
             function filterTable(event) {

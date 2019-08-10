@@ -111,7 +111,7 @@
                                 echo "<td>";
                                 echo "<a href='viewTestQuestions.php?sid=" . $row["subjectId"]. "'>View &#x1F4DD; </a>";
                                 echo "&nbsp; &nbsp;";
-                                echo "<a href='addTestQues.php?sid=" . $row["subjectId"] . "'><span style='color:red;' onclick = 'deleteSubject(".$id.")'>Add Questions <span style='font-size:20;font-weight:9&#x2b;00'>+</span></span></a></td>";
+                                echo "<a href='addTestQues.php?sid=" . $row["subjectId"] . "'><span style='color:red;'>Add Questions <span style='font-size:20;font-weight:9&#x2b;00'>+</span></span></a></td>";
                                 echo "</tr>";
                             }
                         }

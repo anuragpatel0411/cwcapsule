@@ -16,13 +16,12 @@
         <div>
             <?php include './../header.php' ?>
         </div>
+        <h3 class="quhead">Open Questions</h3>
         <div class="container box">
-            <h3>
-                Open Questions
-            </h3>
+            
             <div class="row">
                 <div class="searchbar">
-                    <input type="text" id="search2" placeholder="Type to search....." class="search">
+                    <input type="text" id="search" placeholder="Type to search....." class="search">
                 </div>
                 <?php
                     $conn = new mysqli("localhost","root","","cwcapsule");
@@ -39,7 +38,7 @@
                      $sql = "SELECT * FROM questionanswer WHERE subjectId = '$sId' AND answerId IS NULL";
                      $result = $conn->query($sql);
                 ?>
-                 <table id="detailTable2">
+                 <table id="detailTable1">
                         <thead>
                             <th>Question</th>
                             <th>Attachment</th>
@@ -72,5 +71,24 @@
         <div>
             <?php include './../footer.php' ?>   
         </div>
+        
+        <script>
+            function filterTable(event) {
+                var filter = event.target.value.toUpperCase();
+                var rows = document.querySelector("#detailTable1 tbody").rows;
+                
+                for (var i = 0; i < rows.length; i++) {
+                    var firstCol = rows[i].cells[1].textContent.toUpperCase();
+                    var thirdCol = rows[i].cells[0].textContent.toUpperCase();
+                    if (firstCol.indexOf(filter) > -1 || thirdCol.indexOf(filter) > -1) {
+                        rows[i].style.display = "";
+                    } else {
+                        rows[i].style.display = "none";
+                    }      
+                }
+            }
+            document.querySelector('#search').addEventListener('keyup', filterTable, false);
+        </script>
+
      </body>
  </html>

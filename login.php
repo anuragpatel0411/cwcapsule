@@ -54,11 +54,15 @@
             <?php include 'header.php' ?>   
         </div>
         <div class="row">
+            <div class="col-12">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 head">
+                    <div class="tab row">
+                        <button class="tablinks active" onclick="change(event, 'student')">Login Student</button>
+                        <button class="tablinks" onclick="change(event, 'teacher')">Login Teacher</button>
+                    </div> 
+                </div>
+            </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 box">
-                <div class="tab row">
-                    <button class="tablinks col-6 active" onclick="change(event, 'student')">Login Student</button>
-                    <button class="tablinks col-6" onclick="change(event, 'teacher')">Login Teacher</button>
-                </div> 
                 <div style="color:red; text-align:center;"><?php echo $msg;?></div>   
                 
                 <div id="student" style="display:block;" class="tabcontent">            

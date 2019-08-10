@@ -4,9 +4,8 @@
 }
 .box{
     background: #fff;
-    margin: 30px auto;
     border-radius: 10px;   
-    margin-top: 60px;
+    padding: 15px;
 }
 h2{
     text-align: center;
@@ -49,6 +48,7 @@ p{
     padding: 100px 10px;
 }
 body{
+    background: url("./../../images/tr111.jpg");  
     font-size:14px;
     max-width:1920px;
     margin:0 auto;
@@ -58,6 +58,7 @@ body{
 table {
     border-collapse: collapse;
     width: 100%;
+    margin: 10px;
 }
 
 th, td {
@@ -70,7 +71,7 @@ tr:nth-child(even){
 }
 th {
     background-color: #4CAF50;
-    background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
+    background: #011247;
     color: white;
 }
 .formInput{
@@ -79,7 +80,9 @@ th {
     margin: 10px 0;
     padding-left: 10px;
     border-radius: 10px;
-    border: 1px solid #ced4da;
+    border: 1px solid #011247;
+    background: #011247;
+    color: #fff;
   }
   .formInput:focus{
     outline: none;
@@ -91,7 +94,7 @@ th {
     padding-left: 10px;
     border-radius: 10px;
     border: 1px solid #ced4da;
-    background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
+    background: linear-gradient(to right, #011247 0%, #e97504 100%);
     color: #fff;
   }
   .submitPass{
@@ -100,7 +103,7 @@ th {
     padding-left: 10px;
     border-radius: 10px;
     border: 1px solid #ced4da;
-    background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
+    background: linear-gradient(to right, #011247 0%, #e97504 100%);
     color: #fff;
 }
 .pass .formInput{
@@ -108,25 +111,40 @@ th {
 }
 
 .question{
-    margin-top: 100px;
-    padding: 20px;
-    border: 2px solid #111;
-    border-radius: 20px;
+    padding: 10px;
   }
   .answer{
-    margin-top: 20px;
     margin-bottom: 20px;
-    padding: 20px;
-    border: 2px solid #111;
-    border-radius: 20px;
+    padding: 10px;
+}
+.anstext{
+    width: 100%;
+    border-radius: 10px;
+    margin:5px 0px;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+    
+    margin-bottom: 15px;
+}
+.searchbar{
+    margin: 0 10px;
+}
+.quhead{
+    text-align: center;
+    margin-top: 20px;
+}
+.resp{
+    text-align: center;    
   }
-  .anstext{
-        width: 100%;
-        border-radius: 10px;
-        margin:5px 0px;
-        height: 150px;
-        padding: 12px 20px;
-        box-sizing: border-box;
-        background-color: #f8f8f8;
-        margin-bottom: 15px;
+  .response{
+      background: #fff;
+      padding: 100px 0;
+      border-radius: 20px;
+      font-size: 38px;
+  }
+  pre{
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 20px;
   }

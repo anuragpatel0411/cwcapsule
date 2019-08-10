@@ -81,17 +81,16 @@
 		
         <link rel="stylesheet" href="./../styles/styles.css">
         <link rel="stylesheet" href="./styles/style.css">
-        <link rel="stylesheet" href="./styles/registerlogin.css">
+        <link rel="stylesheet" href="./../styles/registerlogin.css">
         <title>Question</title>
 	</head>
 	<body>
 		<div>
             <?php include './../header.php' ?>   
         </div>
+        <h2 class='quhead'> ASK A QUESTION?</h2>
         <div class="container box">
-            <h2> Ask the questions form our experts in your required field...</h2>
             <div class="answer">
-                <h4>Question:</h4>
                 <form method="post" enctype="multipart/form-data">
                     <div class="subjectSelect">
                         Select Subject: 
@@ -124,7 +123,10 @@
                     <input type="submit" name="submitQues" value="Add Question" class="submitQues">
                 </form>
             </div>
-        </div>        
+        </div>       
+
+		<?php include './../footer.php' ?>
+
         <script>
             $(".custom-file-input").on("change", function() {
             var fileName = $(this).val().split("\\").pop();
