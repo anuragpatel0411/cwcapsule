@@ -1,35 +1,29 @@
-.box{
-    margin-top: 50px;
+body{
+  background: url("./../../images/tr111.jpg");  
 }
 .resp{
-  background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
   text-align: center;    
 }
 .response{
     background: #fff;
-    margin: 150px 100px;;
-    padding: 100px;
+    padding: 100px 0;
     border-radius: 20px;
     font-size: 38px;
 }
 .question{
-  margin-top: 100px;
-  padding: 20px;
-  border: 2px solid #111;
-  border-radius: 20px;
+  margin-top: 20px;
+  padding: 20px 20px 0 20px;
 }
 .answer{
-  margin-top: 20px;
   margin-bottom: 20px;
   padding: 20px;
-  border: 2px solid #111;
-  border-radius: 20px;
 }
 
 /* tables */
 table {
   border-collapse: collapse;
   width: 100%;
+  margin-bottom: 10px;  
 }
 
 th, td {
@@ -41,8 +35,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 
 th {
   background-color: #4CAF50;
-  background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
-
+  background: #011247;
   color: white;
 }
 
@@ -52,7 +45,9 @@ th {
   margin: 10px 0;
   padding-left: 10px;
   border-radius: 10px;
-  border: 1px solid #ced4da;
+  border: 1px solid #011247;
+  background: #011247;
+  color: #fff;
 }
 .formInput:focus{
   outline: none;
@@ -64,7 +59,7 @@ th {
   padding-left: 10px;
   border-radius: 10px;
   border: 1px solid #ced4da;
-  background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
+  background: linear-gradient(to right, #011247 0%, #e97504 100%);
   color: #fff;
 }
 .textQues{
@@ -74,7 +69,9 @@ th {
   height: 150px;
   padding: 12px 20px;
   box-sizing: border-box;
-  background-color: #f8f8f8;
+  border: 1px solid #011247;
+  background: #011247;
+  color: #fff;
   margin-bottom: 15px;
 }
 .custom-file{
@@ -87,9 +84,18 @@ th {
     padding-left: 10px;
     border-radius: 10px;
     border: 1px solid #ced4da;
-    background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
+    background: linear-gradient(to right, #011247 0%, #e97504 100%);
     color: #fff;
 }
 .pass .formInput{
   width: 400px;
+}
+.quhead{
+  text-align: center;
+  margin-top: 20px;
+}
+.theader{
+  /* background: #e97504; */
+  color: #e97504;
+  text-align: center;
 }

@@ -1,5 +1,8 @@
 <?php 
-    session_start();
+    $url_array =  explode('/', $_SERVER['REQUEST_URI']) ;
+    $url = end($url_array);
+    if(!$_SESSION)
+        session_start();
     if(isset($_POST['logout'])){
         session_unset(); 
         session_destroy(); 

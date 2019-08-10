@@ -85,7 +85,7 @@
         </div>
         <div class="container box">
             <div class="question">
-                <h5><u>Question:</u></h5>
+                <h4>Question:</h4>
                 <?php 
                     include $question;
                     if($row["quesAttachment"] == '1'){

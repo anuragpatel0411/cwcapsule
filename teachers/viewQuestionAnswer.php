@@ -57,7 +57,7 @@
         </div>
         <div class="container box">
             <div class="question">
-                <h5><u>Question:</u></h5>
+                <h4><u>Question:</u></h4>
                 <?php 
                     include $question;
                     if($row["quesAttachment"] == '1'){
@@ -67,7 +67,7 @@
                 ?>
             </div>  
             <div class="answer" style="display:<?php echo $answerShow; ?>">
-                <h5><u>Answer:</u></h5>
+                <h4><u>Answer:</u></h4>
                 <?php 
                     include $answer;
                     if($row["answerAttachment"] == '1'){

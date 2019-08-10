@@ -40,6 +40,7 @@
 
         <link rel="stylesheet" href="./../styles/styles.css">
         <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./../styles/registerlogin.css">
         <title>Your Question</title>
 	</head>
 	<body>
@@ -70,6 +71,8 @@
                 ?>
             </div>  
         </div>
+        
+		<?php include './../footer.php' ?>
 
         <script>
             function like(id, type){

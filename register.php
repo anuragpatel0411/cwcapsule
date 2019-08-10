@@ -117,11 +117,13 @@
             <?php include 'header.php' ?>   
         </div>
         <div class="row">
-            <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6 box" style="display:<?php echo $class; ?>;">
-                <div class="tab row">
-                    <button class="tablinks col-6 active" onclick="change(event, 'student')">Register as Student</button>
-                    <button class="tablinks col-6" onclick="change(event, 'teacher')">Register as Teacher</button>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-7 col-xl-7 head" style="display:<?php echo $class; ?>;">
+                <div class="tab">
+                    <button class="tablinks active" onclick="change(event, 'student')">Register as Student</button>
+                    <button class="tablinks" onclick="change(event, 'teacher')">Register as Teacher</button>
                 </div> 
+            </div>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-7 col-xl-7 box" style="display:<?php echo $class; ?>;">
                 <div style="color:blue; text-align:center;"><?php echo $msg;?></div>   
                 
                 <div id="student" style="display:block;" class="tabcontent">            

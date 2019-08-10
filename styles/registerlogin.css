@@ -3,28 +3,39 @@
     position: static;
 }
 .regdbox{
-    background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
+    background: url("./../images/tr111.jpg");
     height: 100%;
+}
+.head{
+    margin: 0px auto;
+    margin-top: 50px;
+    border-radius: 10px;   
 }
 .box{
     background: #fff;
-    margin: 100px auto;
-    border-radius: 10px;   
+    margin: 30px auto;
+    border: 1px solid black;  
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    padding: 10px;
 }
 .tab{
     margin: auto;
 }
 .tablinks{
     font-size: 25px;
-    background: #fff;
+    background:#011247;
     border: 0px;
-    border-bottom: 1px solid black;
     padding: 10px;
     font-weight: 600;
-    background: #f0f0f0;
+    color: #fff;
+    border-radius: 10px;
+    margin: 5px 2.8%;
+    width: 44%
 }
 .tab .active{
-    background: #fff;
+    /* background: #e97504; */
+    background: linear-gradient(to right, #011247 0%, #e97504 100%);
 }
 .tablinks:nth-child(2){
     border-left: 1px solid black;
@@ -44,11 +55,17 @@
     margin: 10px 0;
     padding-left: 10px;
     border-radius: 10px;
-    border: 1px solid #ced4da;
+    border: 1px solid #011247;
+    background: #011247;
+    color: #fff;
 }
 .formInput:focus{
     outline: none;
 }
+input:-internal-autofill-selected{
+    background: #011247;
+    color: #fff
+} 
 .tabcontent{
     padding: 20px;
 }
@@ -59,6 +76,6 @@
     padding-left: 10px;
     border-radius: 10px;
     border: 1px solid #ced4da;
-    background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
+    background: linear-gradient(to right, #011247 0%, #e97504 100%);
     color: #fff;
 }

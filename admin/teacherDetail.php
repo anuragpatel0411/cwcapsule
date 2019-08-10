@@ -15,6 +15,22 @@
             }
             $conn->close();        
         }
+        if(isset($_POST['adds'])){
+            $conn = new mysqli("localhost", "root", "", "cwcapsule");
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }     
+            $id = $_POST["id"];
+            $sub = $_POST["subject"];
+            $sql = "UPDATE teachers SET subject = '$sub' WHERE teacherId='$id'";
+            $result = $conn->query($sql);
+            if ($conn->query($sql) === TRUE) {
+                $msg= "Subject Updated";
+            } else {
+                $msg = "Not Verified Error...";
+            }
+            $conn->close();        
+        }
 ?>
 <html>
     <head>
@@ -73,12 +89,40 @@
                                         echo "<table>";
                                         echo "<tr><th>ID:</th><td><a href='http://localhost/cwcapsule/teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["id"] . "'>" . $row["id"] ."</a></td></tr>";
                                         echo "<tr><th>Qualification Certificate:</th><td><a href='http://localhost/cwcapsule/teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["qualificationCerti"] . "'>" . $row["qualificationCerti"] ."</a></td></tr>";
-                                        echo "<tr><th>Mobile:</th><td><a href='http://localhost/cwcapsule/teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["cv"] . "'>" . $row["cv"] ."</a></td></tr>";
+                                        // echo "<tr><th>Mobile:</th><td><a href='http://localhost/cwcapsule/teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["cv"] . "'>" . $row["cv"] ."</a></td></tr>";
                                         if($row["pan"] != NULL){
                                             echo "<tr><th>PAN:</th><td><a href='http://localhost/cwcapsule/teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["pan"] . "'>" . $row["pan"] ."</a></td></tr>";
                                             echo "<tr><th>PAN No.:</th><td>" . $row["panno"] ."</td></tr>";
                                         }
                                         echo "</table>";
+                                            if($row["subject"]=="Others"){
+                                                echo "<form method='post'>";
+                                                echo "<select name='subject' class='formInput'>
+                                                    <option>----Select Subjects----</option>";
+                                                    
+                                                        $conn = new mysqli("localhost", "root", "", "cwcapsule");
+                                                        if ($conn->connect_error) {
+                                                            die("Connection failed: " . $conn->connect_error);
+                                                        } 
+                                                        
+                                                        $sql2 = "SELECT subjectName FROM subjects";
+                                                        $result2 = $conn->query($sql2);
+                                                        
+                                                        if ($result2->num_rows > 0) {
+                                                            while($row2 = $result2->fetch_assoc()) {
+                                                                echo "<option>" . $row2["subjectName"] . "</option>";
+                                                            }
+                                                        } else {
+                                                            echo "0 results";
+                                                        }
+                                                        $conn->close();
+                                                
+                                                    echo "</select>";
+                                                    echo "<input type='text' value=" . $row["teacherId"] . " name='id' style='display:none'>";
+                                                echo "<input type='submit' class='verify' name='adds' value='Add Subject'> <br>";
+                                                echo "</form>";
+                                            }
+                                                
                                         echo "<form method='post'>
                                                     <input type='text' value=" . $row["teacherId"] . " name='id' style='display:none'> 
                                                     <input type='submit' class='verify' name='verify' value='Verify Documents'>

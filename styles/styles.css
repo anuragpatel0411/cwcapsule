@@ -19,9 +19,6 @@ a:hover {
 }
   
 .defaultHeader {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   z-index: 9; 
   color: black;
@@ -29,7 +26,8 @@ a:hover {
     
 .navbar {
   padding: 25px 15px; 
-  background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
+  /* background: #d3d4d4; */
+  background: linear-gradient(to right, #011247 0%, #e97504 100%);
   color: #fff;
 }
   @media (max-width: 992px) {
@@ -54,9 +52,11 @@ a:hover {
 
 .navbar-nav li a {
   text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 500;
-  color: fff;
+  font-size: 14px;
+  font-weight: 600;
+  /* color: #011247; */
+  color: #fff;
+
   padding: 10px 20px; 
 }
   
@@ -133,7 +133,7 @@ a:hover {
   max-width:1920px;
   margin:0 auto;
   overflow-x:hidden;
-  background: linear-gradient(to right, #7f32fe 0%, #bf37dc 100%);
+  background: #f1f1f1;
 }
 .homeBanner{
   padding:0px;
@@ -146,8 +146,7 @@ a:hover {
   padding-bottom: 0px;
 }
 .justify-content-center{
-  padding-top: 90px;
-  margin-top: 30px;
+  margin-top: 2px;
   padding-bottom: 0px;
   color:#fff;
 }
@@ -159,7 +158,7 @@ a:hover {
   padding-top: 50px;
 }
 .intro h1{
-  background:-webkit-linear-gradient( #7f32fe 0%, #bf37dc);
+  background:#d3d4d4
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: serif;
@@ -233,14 +232,14 @@ a:hover {
 }
 .hm-footer{
   padding-bottom:68px;
-  background: #212135;
+  background: #011247;
 }
 .hm-footer-details {
 padding-top: 50px;
 margin-top: 10px;
 }
 .hm-footer-widget{
-padding-bottom:30px;
+padding-bottom:10px;
 }
 
 /* hm-foot-title */
@@ -252,7 +251,7 @@ font-family: 'Playfair Display', serif;
 text-transform: capitalize;
 }
 .hm-foot-title .logo{
-margin-bottom: 32px;
+margin-bottom: 5px;
 }
 .hm-foot-para p{
 color:#aaa;
