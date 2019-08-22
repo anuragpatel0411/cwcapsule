@@ -4,10 +4,9 @@
     $teacherId = $_SESSION["id"];
     $sub = $_GET["sName"];
     $question = "./../questionanswer/" . $sub . "/questions/" . $questionId . ".html";
-    $conn = new mysqli("localhost", "root", "", "cwcapsule");
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
+    
+    include "./../databaseConn.php";
+
     $sql = "SELECT * FROM questionanswer WHERE questionId = '$questionId'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
@@ -52,11 +51,10 @@
         if($uploadOk == 1){
             $date=date("Y/m/d");
             //store in database
-            $sql = $conn->prepare("UPDATE questionanswer SET answerId=?, dateOfAnswer=?, teacherId=?, answering='0', answerAttachment=?, answerAttachmentFile=? WHERE questionId=?");
+            $sql = $conn->prepare("UPDATE questionanswer SET answerId=?, dateOfAnswer=?, teacherId=?, answering='0', status='Ongoing', answerAttachment=?, answerAttachmentFile=? WHERE questionId=?;");
             $sql->bind_param("issssi", $questionId, $date, $teacherId, $attachment, $attachementName, $questionId);
             $sql->execute();
 
-            
             $conn->close();
 
             $myfile = fopen(".\\..\\questionanswer\\".$sub . "\\answers\\" . $questionId . ".html", "w") or die("Unable to open file!");
@@ -64,7 +62,7 @@
 
             fwrite($myfile, $txt);
             fclose($myfile);      
-            header("Location: http://localhost/cwcapsule/students/responseOK.php"); 
+            header("Location: http://localhost/cwcapsule/teachers/viewQuestionAnswer.php?id=" . $teacherId . "&qid=" . $questionId . "&sName=" . $sub); 
         }
     }
 ?>

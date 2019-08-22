@@ -1,9 +1,7 @@
 <?php
     session_start();
-    $conn = new mysqli("localhost", "root", "", "cwcapsule");
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
+    
+    include "./../databaseConn.php";
 
     $msg = "";
     if(isset($_POST['submit'])){

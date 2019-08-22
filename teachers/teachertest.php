@@ -3,10 +3,9 @@
     $msg = "";
     $ans = array();
     $id = $_GET["id"];
-    $conn = new mysqli("localhost", "root", "", "cwcapsule");
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
+    
+    include "./../databaseConn.php";
+
     $sql = "SELECT testPass, subject FROM teachers where teacherId = '$id'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {

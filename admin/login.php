@@ -2,10 +2,9 @@
     $msg = "";
     $err = "";
     session_start();
-    $conn = new mysqli("localhost", "root", "", "cwcapsule");    
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
+    
+    include "./../databaseConn.php";
+
     if(isset($_POST['submitStudent'])){
         $email	= $_POST['email'];
         $pass = $_POST['pass'];

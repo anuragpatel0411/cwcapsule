@@ -148,3 +148,11 @@ th {
       font-family: 'Times New Roman', Times, serif;
       font-size: 20px;
   }
+  .theader{
+    /* background: #e97504; */
+    color: #e97504;
+    text-align: center;
+  }
+  .ongoing{
+      padding: 0px
+  }

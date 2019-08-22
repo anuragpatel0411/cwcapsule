@@ -1,9 +1,8 @@
 <?php
     session_start();
-    $conn = new mysqli("localhost", "root", "", "cwcapsule");
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
+    
+    include "./../databaseConn.php";
+
     $id = $_SESSION["id"];
     $sql = "SELECT * FROM students WHERE studentId= '$id'";
     $result = $conn->query($sql);

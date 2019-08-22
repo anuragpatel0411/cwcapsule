@@ -3,10 +3,8 @@
 
     $id = $_GET['id'];
 
-    $conn = new mysqli("localhost", "root", "", "cwcapsule");
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
+    include "./../databaseConn.php";
+
     $sql = "SELECT documentVerified, documentUpload  FROM teachers where teacherId = '$id'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
@@ -135,10 +133,9 @@
         
         //store info in database
         if($uploadOk1 ==1 && $uploadOk2 ==1 &&$uploadOk3 ==1){
-            $conn = new mysqli("localhost", "root", "", "cwcapsule");    
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            } 
+            
+            include "./../databaseConn.php";
+
             $panno = $_POST['panno'];
             $idss = basename($_FILES["id"]["name"]);
             $qul = basename($_FILES["qualification"]["name"]);

@@ -1,10 +1,9 @@
 <?php
     $msg ="";
     if(isset($_POST['verify'])){
-            $conn = new mysqli("localhost", "root", "", "cwcapsule");
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }     
+            
+            include "./../databaseConn.php";
+ 
             $id = $_POST["id"];
             $sql = "UPDATE teachers SET documentVerified = TRUE WHERE teacherId='$id'";
             $result = $conn->query($sql);
@@ -16,10 +15,9 @@
             $conn->close();        
         }
         if(isset($_POST['adds'])){
-            $conn = new mysqli("localhost", "root", "", "cwcapsule");
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }     
+            
+            include "./../databaseConn.php";
+    
             $id = $_POST["id"];
             $sub = $_POST["subject"];
             $sql = "UPDATE teachers SET subject = '$sub' WHERE teacherId='$id'";
@@ -48,10 +46,9 @@
                 <div>
                     <h2><?php echo $_GET['name']; ?></h2>
                     <?php                                                     
-                        $conn = new mysqli("localhost", "root", "", "cwcapsule");
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        } 
+                        
+                        include "./../databaseConn.php";
+ 
                         $id= $_GET['id'];
                         $sql = "SELECT * FROM teachers WHERE teacherId= '$id'";
                         $result = $conn->query($sql);
@@ -98,12 +95,9 @@
                                             if($row["subject"]=="Others"){
                                                 echo "<form method='post'>";
                                                 echo "<select name='subject' class='formInput'>
-                                                    <option>----Select Subjects----</option>";
+                                                    <option>----Select Subjects----</option>";                                                    
                                                     
-                                                        $conn = new mysqli("localhost", "root", "", "cwcapsule");
-                                                        if ($conn->connect_error) {
-                                                            die("Connection failed: " . $conn->connect_error);
-                                                        } 
+                                                        include "./../databaseConn.php";
                                                         
                                                         $sql2 = "SELECT subjectName FROM subjects";
                                                         $result2 = $conn->query($sql2);

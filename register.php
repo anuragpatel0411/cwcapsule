@@ -5,10 +5,9 @@
     $classmail = "none";
     $message = '';
     // session_start();
-    $conn = new mysqli("localhost", "root", "", "cwcapsule");    
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
+    
+    include "databaseConn.php";
+
     if(isset($_POST['submitStudent'])){
         $name = $_POST['fname'] . " " . $_POST['lname'];
         $email	= $_POST['email'];
@@ -377,11 +376,9 @@
                             <select name="subject" class="formInput">
                                 <option>----Major Subjects----</option>
                                 <?php 
-                                    $conn = new mysqli("localhost", "root", "", "cwcapsule");
-                                    if ($conn->connect_error) {
-                                        die("Connection failed: " . $conn->connect_error);
-                                    } 
                                     
+                                    include "databaseConn.php";
+
                                     $sql = "SELECT subjectName FROM subjects";
                                     $result = $conn->query($sql);
                                     
@@ -662,11 +659,9 @@
                             <select name="subject" class="formInput">
                                 <option>----Subjects----</option>
                                 <?php 
-                                    $conn = new mysqli("localhost", "root", "", "cwcapsule");
-                                    if ($conn->connect_error) {
-                                        die("Connection failed: " . $conn->connect_error);
-                                    } 
                                     
+                                    include "databaseConn.php";
+                                                                    
                                     $sql = "SELECT subjectName FROM subjects";
                                     $result = $conn->query($sql);
                                     
@@ -725,6 +720,7 @@
                 var pass1 = document.getElementById('mobile');
                 var message = document.getElementById('message');
                 var badColor = "red";
+                alert(mobile.value);
                 if(mobile.value.length!=10){
                     message.style.color = badColor;
                     message.innerHTML = "required 10 digits"
