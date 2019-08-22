@@ -2,10 +2,9 @@
     $msg = "";
     $err = "";
     session_start();
-    $conn = new mysqli("localhost", "root", "", "cwcapsule");    
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
+    
+    include "databaseConn.php";
+
     if(isset($_POST['submitStudent'])){
         $email	= $_POST['email'];
         $pass = $_POST['pass'];
@@ -16,6 +15,7 @@
                 $_SESSION["username"] = $row["studentName"];
                 $_SESSION["id"] = $row["studentId"];
                 $_SESSION["role"] = "students";
+                $_SESSION["questionId"] = "0";
                 header('Location: http://localhost/cwcapsule/students/home.php');
             } else {
                 $msg = "Wrong email or password...";
@@ -32,6 +32,7 @@
             $_SESSION["username"] = $row["teacherName"];
             $_SESSION["id"] = $row["teacherId"];
             $_SESSION["role"] = "teachers";
+            $_SESSION["questionId"] = "0";
             header('Location: http://localhost/cwcapsule/teachers/home.php');
         } else {
             $msg = "Wrong email or password...";

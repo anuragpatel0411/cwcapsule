@@ -3,10 +3,9 @@
     if(isset($_POST['add'])){
         if($_POST['name']){
             $sname	= $_POST['name'];
-            $conn = new mysqli("localhost", "root", "", "cwcapsule");
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            } 
+            
+            include "./../databaseConn.php";
+
             $sql = $conn->prepare("INSERT INTO subjects(subjectName) VALUES(?)");
             $sql->bind_param("s", $sname);
             $sql->execute();
@@ -56,10 +55,9 @@
                 </div>
 
                 <?php                                                     
-                    $conn = new mysqli("localhost", "root", "", "cwcapsule");
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    } 
+                    
+                    include "./../databaseConn.php";
+
                     $sql = "SELECT * FROM subjects ORDER BY subjectName ASC";
                     $result = $conn->query($sql);
                 ?>

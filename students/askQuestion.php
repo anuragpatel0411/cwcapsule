@@ -2,10 +2,9 @@
     session_start();
     $msg = "";
     $err= "";
-    $conn = new mysqli("localhost", "root", "", "cwcapsule");    
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
+    
+    include "./../databaseConn.php";
+
     if(isset($_POST['submitQues'])){
         $subjectId	= $_POST['subs'];
         $ques = $_POST['question'];
@@ -53,8 +52,9 @@
 
         if($uploadOk == 1){
             //store in database
-            $sql = $conn->prepare("INSERT INTO questionanswer(subjectId, studentId, question, quesAttachment, quesAttachmentFile) VALUES(?, ?, ?, ?, ?)");
-            $sql->bind_param("iisss", $subjectId, $studentId, $question, $attachment, $attachementName);
+            $status = "Waiting";
+            $sql = $conn->prepare("INSERT INTO questionanswer(subjectId, studentId, question, quesAttachment, quesAttachmentFile, status) VALUES(?, ?, ?, ?, ?, ?)");
+            $sql->bind_param("iissss", $subjectId, $studentId, $question, $attachment, $attachementName, $status);
             $sql->execute();
 
             //get id of saved question
@@ -78,6 +78,7 @@
 	<head>
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
 		<link rel="stylesheet" href="./../styles/bootstrap.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		
         <link rel="stylesheet" href="./../styles/styles.css">
         <link rel="stylesheet" href="./styles/style.css">
@@ -95,10 +96,9 @@
                     <div class="subjectSelect">
                         Select Subject: 
                         <?php
-                            $conn = new mysqli("localhost", "root", "", "cwcapsule");    
-                            if ($conn->connect_error) {
-                                die("Connection failed: " . $conn->connect_error);
-                            } 
+                            
+                            include "./../databaseConn.php";
+
                             $sql = "SELECT * FROM subjects";
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) {

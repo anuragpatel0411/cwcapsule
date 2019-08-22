@@ -24,10 +24,9 @@
                     <input type="text" id="search" placeholder="Type to search....." class="search">
                 </div>
                 <?php
-                    $conn = new mysqli("localhost","root","","cwcapsule");
-                    if($conn->connect_error){
-                        die("Connection failed: ".$conn->connect_error);
-                    }
+                    
+                    include "./../databaseConn.php";
+
                     $sql = "SELECT subjects.subjectId , subjects.subjectName FROM subjects INNER JOIN teachers ON teachers.subject = subjects.subjectName WHERE teachers.teacherId = '$id' ";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0) {

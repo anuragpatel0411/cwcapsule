@@ -14,10 +14,9 @@
                 <div>
                     <h2><?php echo $_GET['name'] ?></h2>
                     <?php                                                     
-                        $conn = new mysqli("localhost", "root", "", "cwcapsule");
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        } 
+                        
+                        include "./../databaseConn.php";
+
                         $id= $_GET['id'];
                         $sql = "SELECT * FROM students WHERE studentId= '$id'";
                         $result = $conn->query($sql);

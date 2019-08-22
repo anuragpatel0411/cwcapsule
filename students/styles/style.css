@@ -99,3 +99,26 @@ th {
   color: #e97504;
   text-align: center;
 }
+/*chat box*/
+.messageArea{
+  width: 85%;
+  height: 40px;
+  background: none;
+  border: 1px solid #9e9e9e;
+  padding-left: 15px;
+}
+.send_chat{
+  width: 14%;
+  height: 40px;
+  margin-left: 1%;
+  margin-bottom: 5px;
+  background: #011247;
+  border: 1px solid #011247;
+}
+.chat_history{
+  height:400px; 
+  border:1px solid #9e9e9e; 
+  overflow-y: scroll; 
+  margin-bottom:24px; 
+  padding:16px;
+}

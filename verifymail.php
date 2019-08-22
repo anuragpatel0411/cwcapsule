@@ -3,10 +3,7 @@
     $name = $_GET["name"];
     $role = $_GET["r"];
 
-    $conn = new mysqli("localhost", "root", "", "cwcapsule");
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
+    include "databaseConn.php";
 
     if($role == 's'){
         $sql = "SELECT studentId FROM students WHERE email='$mail'";

@@ -27,11 +27,10 @@
                         <input type="text" id="search2" placeholder="Type Your Search..." class="search">
                     </div>
                     <?php                                                     
-                        $conn = new mysqli("localhost", "root", "", "cwcapsule");
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        } 
-                        $sql = "SELECT subjects.subjectName, questionanswer.question, questionanswer.questionId, questionanswer.quesAttachment, questionanswer.quesAttachmentFile FROM questionanswer INNER JOIN subjects ON subjects.subjectId = questionanswer.subjectId WHERE studentId = '$id' AND answerId IS NULL";
+                        
+                        include "./../databaseConn.php";
+
+                        $sql = "SELECT subjects.subjectName, questionanswer.question, questionanswer.status,questionanswer.questionId, questionanswer.quesAttachment, questionanswer.quesAttachmentFile FROM questionanswer INNER JOIN subjects ON subjects.subjectId = questionanswer.subjectId WHERE studentId = '$id' AND status !='Closed'";
                         $result = $conn->query($sql);
                     ?>
                     <table id="detailTable2">
@@ -39,6 +38,7 @@
                             <th>Subject</th>
                             <th>Question</th>
                             <th>Attachment</th>
+                            <th>Status</th>
                             <th></th>
                         </thead>
                         <?php
@@ -52,6 +52,12 @@
                                     }else{
                                         echo "<td>" . $row["quesAttachmentFile"] . "</td>";
                                     }
+                                    echo "<td style='color:";
+                                    if($row["status"] == 'Waiting')
+                                        echo "red";
+                                    else
+                                        echo "orange";
+                                    echo "'>" . $row["status"] . "</td>";
                                     echo "<td><a href='viewQuestionAnswer.php?id=" . $id . "&qid=" . $row["questionId"] . "&sub=" . $row["subjectName"] . "'>View</a>";
                                     // echo "<span style='color:red;' onclick = 'deleteSubject(".$id.")'>Delete &#10006;</span>";
                                     echo "</td>";
@@ -70,11 +76,10 @@
                         <input type="text" id="search" placeholder="Type Your Search..." class="search">
                     </div>
                     <?php                                                     
-                        $conn = new mysqli("localhost", "root", "", "cwcapsule");
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        } 
-                        $sql = "SELECT  subjects.subjectName, questionanswer.question, questionanswer.questionId, questionanswer.quesAttachment, questionanswer.quesAttachmentFile  FROM questionanswer INNER JOIN subjects ON subjects.subjectId = questionanswer.subjectId WHERE answerId IS NOT NULL";
+                        
+                        include "./../databaseConn.php";
+
+                        $sql = "SELECT  subjects.subjectName, questionanswer.question, questionanswer.status, questionanswer.questionId, questionanswer.quesAttachment, questionanswer.quesAttachmentFile  FROM questionanswer INNER JOIN subjects ON subjects.subjectId = questionanswer.subjectId WHERE status = 'Closed'";
                         $result = $conn->query($sql);
                     ?>
                     <table id="detailTable1">
@@ -82,6 +87,7 @@
                             <th>Subject</th>
                             <th>Question</th>
                             <th>Attachment</th>
+                            <th>Status</th>
                             <th></th>
                         </thead>
                         <?php
@@ -95,6 +101,7 @@
                                     }else{
                                         echo "<td>" . $row["quesAttachmentFile"] . "</td>";
                                     }
+                                    echo "<td style='color:green'>" . $row["status"] . "</td>";
                                     echo "<td><a href='viewQuestionAnswer.php?id=" . $id . "&qid=" . $row["questionId"] . "&sub=" . $row["subjectName"] . "'>View</a>";
                                     // echo "<span style='color:red;' onclick = 'deleteSubject(".$id.")'>Delete &#10006;</span>"
                                     ECHO "</td>";

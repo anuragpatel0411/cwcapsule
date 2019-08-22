@@ -19,10 +19,9 @@
                             <input type="text" id="search2" placeholder="Type Your Search..." class="search">
                         </div>
                         <?php                                                     
-                            $conn = new mysqli("localhost", "root", "", "cwcapsule");
-                            if ($conn->connect_error) {
-                                die("Connection failed: " . $conn->connect_error);
-                            } 
+                            
+                            include "./../databaseConn.php";
+
                             $sql = "SELECT * FROM teachers WHERE mailVerified = '0' OR testPass = '0' OR documentUpload = '0' OR documentVerified = '0' ORDER BY documentVerified, documentUpload,testPass DESC";
                             $result = $conn->query($sql);
                         ?>
@@ -89,10 +88,9 @@
                             <input type="text" id="search" placeholder="Type Your Search..." class="search">
                         </div>
                         <?php                                                     
-                            $conn = new mysqli("localhost", "root", "", "cwcapsule");
-                            if ($conn->connect_error) {
-                                die("Connection failed: " . $conn->connect_error);
-                            } 
+                            
+                            include "./../databaseConn.php";
+
                             $sql = "SELECT * FROM teachers WHERE mailVerified = '1' AND testPass = '1' AND documentUpload = '1' AND documentVerified = '1' ORDER BY teacherName ASC";
                             $result = $conn->query($sql);
                         ?>

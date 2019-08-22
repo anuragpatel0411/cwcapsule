@@ -1,8 +1,7 @@
 <?php
-    $conn = new mysqli("localhost", "root","","cwcapsule");
-    if($conn->connect_error){
-        die("Connection failed: ".$conn->connect_error);
-    }
+    
+    include "./../databaseConn.php";
+
     $err = "";
     $subjectId = $_GET["sid"];
     if(isset($_POST["submitQues"])){

@@ -1,9 +1,8 @@
 <!-- http://localhost/cwcapsule/teachers/documentVerificatioWait.php?id=' . $id -->
 <?php 
-    $conn = new mysqli("localhost", "root", "", "cwcapsule");    
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
+    
+    include "./../databaseConn.php";
+
     $id = $_GET['id'];
         $sql = "SELECT documentVerified FROM teachers WHERE teacherId = '$id'";
         $result = $conn->query($sql);

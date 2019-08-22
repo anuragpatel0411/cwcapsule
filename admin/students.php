@@ -19,10 +19,9 @@
                             <input type="text" id="search2" placeholder="Type Your Search..." class="search">
                         </div>
                         <?php                                                     
-                            $conn = new mysqli("localhost", "root", "", "cwcapsule");
-                            if ($conn->connect_error) {
-                                die("Connection failed: " . $conn->connect_error);
-                            } 
+                            
+                            include "./../databaseConn.php";
+
                             $sql = "SELECT * FROM students WHERE verified = '0' ORDER BY studentName ASC";
                             $result = $conn->query($sql);
                         ?>
@@ -59,10 +58,9 @@
                             <input type="text" id="search" placeholder="Type Your Search..." class="search">
                         </div>
                         <?php                                                     
-                            $conn = new mysqli("localhost", "root", "", "cwcapsule");
-                            if ($conn->connect_error) {
-                                die("Connection failed: " . $conn->connect_error);
-                            } 
+                            
+                            include "./../databaseConn.php";
+ 
                             $sql = "SELECT * FROM students WHERE verified = '1' ORDER BY studentName ASC";
                             $result = $conn->query($sql);
                         ?>

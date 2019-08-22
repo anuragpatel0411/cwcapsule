@@ -1,9 +1,8 @@
 <!-- http://localhost/cwcapsule/teachers/teachertest.php?id=1 -->
 <?php
-    $conn = new mysqli("localhost", "root", "", "cwcapsule");
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
+    
+    include "./../databaseConn.php";
+
     $subid = $_GET["sid"];
 ?>
 
