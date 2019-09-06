@@ -4,6 +4,7 @@
     $role = $_GET["r"];
 
     include "databaseConn.php";
+    include "configurl.php";
 
     if($role == 's'){
         $sql = "SELECT studentId FROM students WHERE email='$mail'";
@@ -18,7 +19,7 @@
                 $_SESSION["username"] = $_GET["name"];
                 $_SESSION["id"] = $id;
                 $_SESSION["role"] = "student";
-                header('Location: http://localhost/cwcapsule/students/home.php?id='.$id);
+                header('Location: ' . $url . ' students/home.php?id='.$id);
             } else {
                 echo "Error: " . $sql2 . "<br>" . $conn->error;
             }
@@ -41,7 +42,7 @@
                 $_SESSION["username"] = $_GET["name"];
                 $_SESSION["id"] = $id;
                 $_SESSION["role"] = "teacher";
-                header('Location: http://localhost/cwcapsule/teachers/teachertest.php?id='.$id);
+                header('Location: ' . $url .' teachers/teachertest.php?id='.$id);
             } else {
                 echo "Error: " . $sql2 . "<br>" . $conn->error;
             }

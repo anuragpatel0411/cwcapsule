@@ -1,5 +1,7 @@
 <?php
     $msg ="";
+    include "./../configurl.php";
+
     if(isset($_POST['verify'])){
             
             include "./../databaseConn.php";
@@ -69,11 +71,11 @@
                                 echo "<br><br>";
                                 if( $row["mailVerified"] == '1' && $row["testPass"] == '1' && $row["documentUpload"] == '1' &&   $row["documentVerified"] == '1'){
                                     echo "<table>";
-                                    echo "<tr><th>ID:</th><td><a href='http://localhost/cwcapsule/teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["id"] . "'>" . $row["id"] ."</a></td></tr>";
-                                    echo "<tr><th>Qualification Certificate:</th><td><a href='http://localhost/cwcapsule/teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["qualificationCerti"] . "'>" . $row["qualificationCerti"] ."</a></td></tr>";
-                                    echo "<tr><th>Mobile:</th><td><a href='http://localhost/cwcapsule/teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["cv"] . "'>" . $row["cv"] ."</a></td></tr>";
+                                    echo "<tr><th>ID:</th><td><a href='" . $url . "teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["id"] . "'>" . $row["id"] ."</a></td></tr>";
+                                    echo "<tr><th>Qualification Certificate:</th><td><a href='" . $url . "teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["qualificationCerti"] . "'>" . $row["qualificationCerti"] ."</a></td></tr>";
+                                    echo "<tr><th>Mobile:</th><td><a href='" . $url . "teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["cv"] . "'>" . $row["cv"] ."</a></td></tr>";
                                     if($row["pan"] != NULL){
-                                        echo "<tr><th>PAN:</th><td><a href='http://localhost/cwcapsule/teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["pan"] . "'>" . $row["pan"] ."</a></td></tr>";
+                                        echo "<tr><th>PAN:</th><td><a href='" . $url . "teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["pan"] . "'>" . $row["pan"] ."</a></td></tr>";
                                         echo "<tr><th>PAN No.:</th><td>" . $row["panno"] ."</td></tr>";
                                     }
                                     echo "</table>";
@@ -84,11 +86,11 @@
                                     echo "<tr><th>Document Uploaded:</th><td>" . $row["documentUpload"] ."</td></tr>";
                                     if($row["documentUpload"] == '1'){
                                         echo "<table>";
-                                        echo "<tr><th>ID:</th><td><a href='http://localhost/cwcapsule/teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["id"] . "'>" . $row["id"] ."</a></td></tr>";
-                                        echo "<tr><th>Qualification Certificate:</th><td><a href='http://localhost/cwcapsule/teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["qualificationCerti"] . "'>" . $row["qualificationCerti"] ."</a></td></tr>";
+                                        echo "<tr><th>ID:</th><td><a href='" . $url . "teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["id"] . "'>" . $row["id"] ."</a></td></tr>";
+                                        echo "<tr><th>Qualification Certificate:</th><td><a href='" . $url . "teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["qualificationCerti"] . "'>" . $row["qualificationCerti"] ."</a></td></tr>";
                                         // echo "<tr><th>Mobile:</th><td><a href='http://localhost/cwcapsule/teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["cv"] . "'>" . $row["cv"] ."</a></td></tr>";
                                         if($row["pan"] != NULL){
-                                            echo "<tr><th>PAN:</th><td><a href='http://localhost/cwcapsule/teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["pan"] . "'>" . $row["pan"] ."</a></td></tr>";
+                                            echo "<tr><th>PAN:</th><td><a href='" . $url . "teachers/documentsUploads/" . $row["teacherId"] . "/" . $row["pan"] . "'>" . $row["pan"] ."</a></td></tr>";
                                             echo "<tr><th>PAN No.:</th><td>" . $row["panno"] ."</td></tr>";
                                         }
                                         echo "</table>";

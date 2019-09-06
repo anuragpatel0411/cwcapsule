@@ -2,6 +2,7 @@
     session_start();
     
     include "./../databaseConn.php";
+    include "./../configurl.php";
 
     $id = $_SESSION["id"];
     $sql = "SELECT * FROM students WHERE studentId= '$id'";
@@ -27,7 +28,7 @@
     }
     
     if(isset($_POST['discard'])){
-        header("Location : http://localhost/cwcapsule/students/home.php");
+        header("Location : " . $url . " students/home.php");
     }
 ?>
 

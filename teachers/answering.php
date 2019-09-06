@@ -6,6 +6,7 @@
     $question = "./../questionanswer/" . $sub . "/questions/" . $questionId . ".html";
     
     include "./../databaseConn.php";
+    include "./../configurl.php";
 
     $sql = "SELECT * FROM questionanswer WHERE questionId = '$questionId'";
     $result = $conn->query($sql);
@@ -62,7 +63,7 @@
 
             fwrite($myfile, $txt);
             fclose($myfile);      
-            header("Location: http://localhost/cwcapsule/teachers/viewQuestionAnswer.php?id=" . $teacherId . "&qid=" . $questionId . "&sName=" . $sub); 
+            header("Location: " . $url . " teachers/viewQuestionAnswer.php?id=" . $teacherId . "&qid=" . $questionId . "&sName=" . $sub); 
         }
     }
 ?>

@@ -1,6 +1,7 @@
 <?php
 
     include "./../databaseConn.php";
+    include "./../configurl.php";
     
     $questionId = $_GET["qid"];
     $sub = $_GET["sName"];
@@ -38,7 +39,7 @@
         $sql = "UPDATE questionAnswer SET answering='1' WHERE questionId = '$questionId' ";
 
         if ($conn->query($sql) === TRUE) {
-            header("Location: http://localhost/cwcapsule/teachers/answering.php?qid=".$questionId."&sName=".$sub);
+            header("Location: " . $url . " teachers/answering.php?qid=".$questionId."&sName=".$sub);
         } else {
             echo "Error updating record: " . $conn->error;
         }
@@ -129,7 +130,7 @@ $(document).ready(function(){
     }, 1000); // <---- here 
     function refreshMsg() {
         var hvatajPoruke = $.ajax({
-            url: "http://localhost/cwcapsule/liveChatUser/take_msg.php",
+            url: "<?php echo $url;?>liveChatUser/take_msg.php",
             method: "POST",
             data:{to_user_id:to_user_id,quid: <?php echo $questionId?>},
             success: function(data) {
@@ -154,7 +155,7 @@ $(document).ready(function(){
 		var to_user_id = $(this).attr('id');
 		var chat_message = $('#chat_message_'+to_user_id).val();
 		$.ajax({
-			url:"http://localhost/cwcapsule/liveChatUser/insert_chat.php",
+			url:"<?php echo $url;?>liveChatUser/insert_chat.php",
 			method:"POST",
 			data:{to_user_id:to_user_id, chat_message:chat_message, quid: <?php echo $questionId?>},
 			success:function(data){

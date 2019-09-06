@@ -5,6 +5,7 @@
     $id = $_GET["id"];
     
     include "./../databaseConn.php";
+    include "./../configurl.php";
 
     $sql = "SELECT testPass, subject FROM teachers where teacherId = '$id'";
     $result = $conn->query($sql);
@@ -12,7 +13,7 @@
         $row = $result->fetch_assoc();
         $sub = $row['subject'];
         if($row["testPass"] == TRUE){
-            header('Location: http://localhost/cwcapsule/teachers/documentUpload.php?id='.$id);
+            header('Location: ' .  $url . ' teachers/documentUpload.php?id='.$id);
         }
         
         //for others category
@@ -53,7 +54,7 @@
         if($score >=7){
             $sql = "UPDATE teachers SET testPass = 1 WHERE teacherId = '$id'";
             if ($conn->query($sql) === TRUE) {
-                header('Location: http://localhost/cwcapsule/teachers/documentUpload.php?id='.$id);
+                header('Location: ' . $url . ' teachers/documentUpload.php?id='.$id);
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }

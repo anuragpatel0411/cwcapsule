@@ -4,6 +4,7 @@
     $err= "";
     
     include "./../databaseConn.php";
+    include "./../configurl.php";
 
     if(isset($_POST['submitQues'])){
         $subjectId	= $_POST['subs'];
@@ -70,7 +71,7 @@
 
             fwrite($myfile, $txt);
             fclose($myfile);
-            header("Location: http://localhost/cwcapsule/students/responseOK.php");     
+            header("Location: " . $url . " students/responseOK.php");     
         }   
     }
 ?>

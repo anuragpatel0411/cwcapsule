@@ -1,6 +1,7 @@
 <?php
     
     include "./../databaseConn.php";
+    include "./../configurl.php";
 
     $err = "";
     $subjectId = $_GET["sid"];
@@ -36,7 +37,7 @@
                 $conn->query($sql3);
                 $conn->query($sql4);
                 $conn->query($sql5);
-                header("Location: http://localhost/cwcapsule/admin/addTestQues.php?sid=" . $subjectId);
+                header("Location: " . $url . " admin/addTestQues.php?sid=" . $subjectId);
             } 
             else {
                 $err = "Error in uploading data";
@@ -99,7 +100,7 @@
                         </div>
                     </div>
                 </form>
-                <div><a href="http://localhost/cwcapsule/admin/subjects.php"><<<span>Go Back</span></a></div>
+                <div><a href="<?echo $url;?>admin/subjects.php"><<<span>Go Back</span></a></div>
             </div>
         </div>
     </body>
