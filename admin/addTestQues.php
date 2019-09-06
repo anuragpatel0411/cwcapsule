@@ -37,7 +37,7 @@
                 $conn->query($sql3);
                 $conn->query($sql4);
                 $conn->query($sql5);
-                header("Location: " . $url . " admin/addTestQues.php?sid=" . $subjectId);
+                header("Location: " . $url . "admin/addTestQues.php?sid=" . $subjectId);
             } 
             else {
                 $err = "Error in uploading data";

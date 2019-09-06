@@ -20,24 +20,24 @@
         $row = $result->fetch_assoc();
         $subject= $row["COUNT(subjectId)"];
     }
-    // $sql = "SELECT COUNT(quesid) FROM qadetail";
-    // $result = $conn->query($sql);
-    // if ($result->num_rows > 0) {
-    //     $row = $result->fetch_assoc();
-    //     $questions= $row["COUNT(quesid)"];
-    // }
-    // $sql = "SELECT COUNT(quesid) FROM qadetail WHERE ansid IS NOT NULL";
-    // $result = $conn->query($sql);
-    // if ($result->num_rows > 0) {
-    //     $row = $result->fetch_assoc();
-    //     $answerd= $row["COUNT(quesid)"];
-    // }
-    // $sql = "SELECT COUNT(quesid) FROM qadetail WHERE ansid IS NULL";
-    // $result = $conn->query($sql);
-    // if ($result->num_rows > 0) {
-    //     $row = $result->fetch_assoc();
-    //     $unanswerd= $row["COUNT(quesid)"];
-    // }
+    $sql = "SELECT COUNT(questionId) FROM questionanswer";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $questions= $row["COUNT(questionId)"];
+    }
+    $sql = "SELECT COUNT(questionId) FROM questionanswer WHERE answerId IS NOT NULL";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $answerd= $row["COUNT(questionId)"];
+    }
+    $sql = "SELECT COUNT(questionId) FROM questionanswer WHERE answerId IS NULL";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $unanswerd= $row["COUNT(questionId)"];
+    }
     $conn->close();
 ?>
 
