@@ -36,15 +36,50 @@
 		<div>
             <?php include './../header.php' ?>   
         </div>
-        <div class="container box">
-           <h2> Welcome <?php echo $_SESSION["username"];?></h2>Teacher
-           <div>
-                <div>
-                   <a href="update.php">Update Profile</a>
-                </div>    
-                <div>
-                    <a href="chngPass.php">Change Password</a>
-                </div>    
+        <div class="box" align="center">
+            <div class="homeuser"><H2><?php echo $_SESSION["username"];?></H2></div>
+            <div>
+                <img src="#" alt="profile" height="150" width="120">
+            </div>
+            <div class="homemail">
+                <?php 
+                    include "./../databaseConn.php";
+                    $sql = "SELECT email FROM teachers WHERE teacherId=" . $_SESSION["id"];
+                    $result = $conn->query($sql);
+                    $row = $result->fetch_assoc();
+                    echo $row["email"];
+                ?>
+            </div>
+            <div class="row cards">
+                <div class="col-11 col-sm-11 col-md-4 col-lg-4 col-xl-4">
+                    <div class=card>
+                        Upadte Profile
+                        <div class="links"><a href="update.php">Go &rArr;</a></div>
+                    </div>
+                </div>
+                <div class="col-11 col-sm-11 col-md-4 col-lg-4 col-xl-4">
+                    <div class=card>
+                        Bank Details
+                        <?php 
+                            $sql = "SELECT accountNo FROM teachers WHERE teacherId=" . $_SESSION["id"];
+                            $result = $conn->query($sql);
+                            $row = $result->fetch_assoc();
+                            if($row["accountNo"]==NULL){
+                                echo "<div class='links'><a href='bankdetail.php?opt=1'>Add Bank Details &rArr;</a></div>";
+                            }else{
+                                echo "<div class='links'><a href='bankdetail.php?opt=2'>View Bank Details &rArr;</a></div>";
+                            }
+                            $conn->close();
+                        ?>
+                    </div>
+                </div>
+                <div class="col-11 col-sm-11 col-md-4 col-lg-4 col-xl-4">
+                    <div class=card>
+                        Change Password
+                        <div class="links"><a href="chngPass.php">Go &rArr;</a></div>
+                    </div>
+                </div>
+            </div>
            </div>
         </div>
         

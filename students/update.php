@@ -25,6 +25,10 @@
             $msg = "Update Fail";
         }
     }
+    
+    if(isset($_POST['discard'])){
+        header("Location : http://localhost/cwcapsule/students/home.php");
+    }
 ?>
 
 <html>
@@ -43,32 +47,20 @@
         </div>
         <div class="container box">
             <h3>You are not allowed to update your profile</h3>
-            <!-- <form method="post">
+            <!-- <form method="post" align="center" class="pass">
                 <h3>Update Porfile</h3>
                 <h4 style="color:blue;"><?php echo $msg; ?></h4>
                 <div>
-                    <span>Name: </span>
-                    <input type="text" name="name" value="<?php echo $row['studentName']; ?>">
+                    <div><input type="text" name="name" class="formInput" value="<?php echo $row['mobile']; ?>"></div>
                 </div>
-                <div>
-                    <span>DOB: </span>
-                    <input type="text" name="dob" value="<?php echo $row['birthDate']; ?>">
-                </div>
-                <div>
-                    <span>Course: </span>
-                    <input type="text" name="course" value="<?php echo $row['course']; ?>">
-                </div>
-                <div>
-                    <span>Major Subjects: </span>
-                    <input type="text" name="subject" value="<?php echo $row['majorSubject']; ?>">
-                </div>
+                
                 <div>
                     <input type="submit" name="submit" value="Save">
                     <a href="home.php">
                         <input type="button" name="discard" value="Cancel">
                     </a>
                 </div>
-            </form> -->
+            </form>   -->
         </div>
         
 		<?php include './../footer.php' ?>

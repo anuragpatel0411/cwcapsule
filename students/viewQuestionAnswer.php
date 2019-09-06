@@ -12,17 +12,23 @@
     $row = $result->fetch_assoc();
     $teacherId = $row["teacherId"];
 
-    $query = "SELECT teacherName FROM teachers WHERE teacherId = $teacherId";
-    $result = $conn->query($query);
-    if($result->num_rows > 0)
-        $row = $result->fetch_assoc();
-    $teacherName = $row["teacherName"];
+    if($teacherId != NULL){
+        $query = "SELECT teacherName FROM teachers WHERE teacherId = $teacherId";
+        $result = $conn->query($query);
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+            $teacherName = $row["teacherName"];
+        }
+    }
  
     $sql = "SELECT * FROM questionanswer WHERE questionId = '$questionId'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
 
     $answerShow = "block";
+    $messageShow = "none";
+    if($row["status"] == "Ongoing")
+        $messageShow = "block";
     if($row["answerId"] == NULL){
         $answerShow = "none";
     }
@@ -81,7 +87,7 @@
                 ?>
             </div>  
 
-            <div class="chat">
+            <div class="chat" style="display:<?php echo $messageShow; ?>">
                 <h4>Messages:</h4>
                 <!-- <div><button type="button" style="width:120px" class="btn btn-info btn-xs start_chat" data-touserid="<?php echo $teacherId;?>" data-tousername="<?php echo $teacherName;?>"><h4>Messages</h4></button></div> -->
 				<div id="user_model_details"></div>                    
@@ -135,7 +141,7 @@ $(document).ready(function(){
 
 	function make_chat_dialog_box(to_user_id, to_user_name) {
         var modal_content = '<div id="user_dialog_'+to_user_id+'" class="user_dialog" style="background-color:" title="You have chat with '+to_user_name+'">';
-        modal_content += '<input type="text" name="chat_message_'+to_user_id+'" id="chat_message_'+to_user_id+'" class="formInput messageArea" placeholder="Type a message">';
+        modal_content += '<input type="text" name="chat_message_'+to_user_id+'" id="chat_message_'+to_user_id+'" class="formInput messageArea" style="color:black" placeholder="Type a message">';
 		modal_content += '<button type="button" name="send_chat" id="'+to_user_id+'" class="btn btn-info send_chat">Send</button>';
 		modal_content += '<div class="chat_history" data-touserid="'+to_user_id+'" id="chat_history_'+to_user_id+'"></div>';
 		modal_content += '</div>';

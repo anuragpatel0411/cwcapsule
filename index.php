@@ -1,8 +1,8 @@
-<!--Hello-->
 <html>
 	<head>
 		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
 		<link rel="stylesheet" href="./styles/bootstrap.css">
+		<link rel="icon" type="image/x-icon" href="logo-cw.ico">
 		<link rel="stylesheet" href="./styles/styles.css">
 		<link rel="stylesheet" href="./styles/registerlogin.css">
 	</head>
@@ -12,16 +12,16 @@
 				<div class="img1">
 					<div class="row justify-content-center fullscreen align-items-center">
 						<div class="col-lg-5 col-md-8 homeBannerLeft">
-							<h1 class="text-white">
+							<h1 class="text-black">
 								Get the Right Answers<br/>
 								For all Your Questions
 							</h1>
-							<p class="mx-auto text white mt-20 mb-40">
+							<p class="mx-auto text-black mt-20 mb-40">
 								Best plantform to provide solutions for all your problems.
 							</p>
 						</div>
 						<!--<div class="offset-lg-2 col-lg-5 col-md-12 homeBannerRight">
-							<img class="imgBooks" src="./images/bannerHome.png" alt="Books with a pen">
+							<img class="imgBooks" src="./images/bannerHome.jpg" alt="Books with a pen">
 						</div> -->
 					</div>
 				</div>
@@ -99,7 +99,7 @@
 									</p>
 								</div>
 								<div>
-									<span>&#9742</span>077019 40126
+									<span>&#9742</span> +91 77019 40126
 								</div>
 								<div>
 									<span>&#9993</span>

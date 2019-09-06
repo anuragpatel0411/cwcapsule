@@ -717,11 +717,10 @@
                 evt.currentTarget.className += " active";
             }
             function check(){
-                var pass1 = document.getElementById('mobile');
+                var mobileno = document.getElementById('mobile').value;
                 var message = document.getElementById('message');
                 var badColor = "red";
-                alert(mobile.value);
-                if(mobile.value.length!=10){
+                if(mobileno.length!=10){
                     message.style.color = badColor;
                     message.innerHTML = "required 10 digits"
                 }else{

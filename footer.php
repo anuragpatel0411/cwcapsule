@@ -35,12 +35,12 @@
 								</div><!--/.hm-foot-title-->
 								<div class="footer-menu ">	  
 									<ul class="">
-										<li><a href="index.html" >Home</a></li>
-										<li><a href="about.html">Student</a></li>
-										<li><a href="services.html">Teacher</a></li>
-										<li><a href="portfolio.html">About</a></li>
-										<li><a href="blog.html">Register</a></li>
-										<li><a href="contact.html">Contact us</a></li> 
+										<li><a href="http://localhost/cwcapsule/index.php" >Home</a></li>
+										<li><a href="http://localhost/cwcapsule/index.php#std">Student</a></li>
+										<li><a href="http://localhost/cwcapsule/index.php#tech">Teacher</a></li>
+										<li><a href="http://localhost/cwcapsule/index.php#about">About</a></li>
+										<li><a href="http://localhost/cwcapsule/register.php">Register</a></li>
+										<li><a href="http://localhost/cwcapsule/index.php#contact">Contact us</a></li> 
 									</ul>
 								</div><!-- /.footer-menu-->
 							</div><!--/.hm-footer-widget-->
@@ -54,7 +54,7 @@
 									<span>
 										cwcapsule@gmail.com
                                     </span>
-									<span style="display:block">+91 73652 56273</span>
+									<span style="display:block">+91 77019 40126</span>
 								</div><!--/.hm-para-news-->
 								<div class="footer-line">
 									<div class="border-bottom"></div>
