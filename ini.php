@@ -102,4 +102,4 @@ mysqli_close($con);
 ?>
 
 
-<!-- http://localhost/cwcapsule/verifymail.php?email=richa@g.c&name=Richa BhardwajBhardewaj&r=t -->
+<!-- <?php echo $url;?>verifymail.php?email=richa@g.c&name=Richa BhardwajBhardewaj&r=t -->

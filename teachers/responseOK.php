@@ -16,7 +16,7 @@
         <div class="container box">
             <div class="response">
                 Your Response Is Submitted
-                <div><a href= 'http://localhost/cwcapsule/students/home.php'>Click to go back</a></div>
+                <div><a href= '<?php include "./../configurl.php"; echo $url;?>students/home.php'>Click to go back</a></div>
             </div>
         </div>
         

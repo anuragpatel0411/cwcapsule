@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<?php  include "configurl.php"; ?>
 <footer class="hm-footer">
 			<div class="container">
 				<div class="hm-footer-details">
@@ -35,12 +35,12 @@
 								</div><!--/.hm-foot-title-->
 								<div class="footer-menu ">	  
 									<ul class="">
-										<li><a href="http://localhost/cwcapsule/index.php" >Home</a></li>
-										<li><a href="http://localhost/cwcapsule/index.php#std">Student</a></li>
-										<li><a href="http://localhost/cwcapsule/index.php#tech">Teacher</a></li>
-										<li><a href="http://localhost/cwcapsule/index.php#about">About</a></li>
-										<li><a href="http://localhost/cwcapsule/register.php">Register</a></li>
-										<li><a href="http://localhost/cwcapsule/index.php#contact">Contact us</a></li> 
+										<li><a href="<?php echo $url;?>index.php" >Home</a></li>
+										<li><a href="<?php echo $url;?>index.php#std">Student</a></li>
+										<li><a href="<?php echo $url;?>index.php#tech">Teacher</a></li>
+										<li><a href="<?php echo $url;?>index.php#about">About</a></li>
+										<li><a href="<?php echo $url;?>register.php">Register</a></li>
+										<li><a href="<?php echo $url;?>index.php#contact">Contact us</a></li> 
 									</ul>
 								</div><!-- /.footer-menu-->
 							</div><!--/.hm-footer-widget-->

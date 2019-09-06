@@ -4,6 +4,7 @@
     session_start();
     
     include "databaseConn.php";
+    include "configurl.php";
 
     if(isset($_POST['submitStudent'])){
         $email	= $_POST['email'];
@@ -16,7 +17,7 @@
                 $_SESSION["id"] = $row["studentId"];
                 $_SESSION["role"] = "students";
                 $_SESSION["questionId"] = "0";
-                header('Location: http://localhost/cwcapsule/students/home.php');
+                header('Location: ' . $url . 'students/home.php');
             } else {
                 $msg = "Wrong email or password...";
             }
@@ -33,7 +34,7 @@
             $_SESSION["id"] = $row["teacherId"];
             $_SESSION["role"] = "teachers";
             $_SESSION["questionId"] = "0";
-            header('Location: http://localhost/cwcapsule/teachers/home.php');
+            header('Location: ' . $url . 'teachers/home.php');
         } else {
             $msg = "Wrong email or password...";
         }

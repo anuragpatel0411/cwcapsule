@@ -8,6 +8,8 @@
         session_destroy(); 
         header('Location: /cwcapsule/index.php');
     }
+
+    include "configurl.php";
 ?>
         <link rel="stylesheet" href="./../styles/style.css">
         <link rel="stylesheet" href="./styles/style.css">
@@ -26,7 +28,7 @@
 
             <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                <li><a href="http://localhost/cwcapsule/index.php">Home</a></li>
+                <li><a href="<?php echo $url;?>index.php">Home</a></li>
                 <?php
                     if(!$_SESSION){
                         echo "<li><a href='#std'>Student</a></li>";
@@ -36,26 +38,26 @@
                 <?php
                     if($_SESSION){
                         if($_SESSION["role"]=='teachers'){
-                                echo"<li><a href = 'http://localhost/cwcapsule/teachers/answerQuestion.php'>Answer Questions</a></li>";
-                                echo"<li><a href = 'http://localhost/cwcapsule/teachers/yourAnswers.php'>Your Answers</a></li>";
+                                echo"<li><a href = '" .$url . "teachers/answerQuestion.php'>Answer Questions</a></li>";
+                                echo"<li><a href = '" .$url . "teachers/yourAnswers.php'>Your Answers</a></li>";
                             }
                         if($_SESSION["role"]=='students'){
-                            echo"<li><a href = 'http://localhost/cwcapsule/students/askQuestion.php'>Ask Question</a></li>";
-                            echo"<li><a href = 'http://localhost/cwcapsule/students/yourQuestion.php'>Your Questions</a></li>";
+                            echo"<li><a href = '" .$url . "students/askQuestion.php'>Ask Question</a></li>";
+                            echo"<li><a href = '" .$url . "students/yourQuestion.php'>Your Questions</a></li>";
                             }
                     }
                 ?>
-                <li><a href="http://localhost/cwcapsule/index.php#about">About Us</a></li>
-                <li><a href="http://localhost/cwcapsule/index.php#contact">Contact Us</a></li>
+                <li><a href="<?php echo $url;?>index.php#about">About Us</a></li>
+                <li><a href="<?php echo $url;?>index.php#contact">Contact Us</a></li>
                 <?php
                     if($_SESSION){
-                        echo "<li><a href ='http://localhost/cwcapsule/" . $_SESSION["role"] . "/home.php'>Profile</a></li>";
+                        echo "<li><a href ='" .$url . $_SESSION["role"] . "/home.php'>Profile</a></li>";
                         echo "<form method='post'>
                                     <li><input type='submit' class='logout' name='logout' value='LOGOUT'><li>
                                 </form> ";
                     }else{
-                        echo"<li><a href = 'http://localhost/cwcapsule/login.php'>Login</a></li>";
-                        echo"<li><a href = 'http://localhost/cwcapsule/register.php'>Signup</a></li>";
+                        echo"<li><a href = '" .$url . "login.php'>Login</a></li>";
+                        echo"<li><a href = '" .$url . "register.php'>Signup</a></li>";
                     }
                 ?>
                 </ul>

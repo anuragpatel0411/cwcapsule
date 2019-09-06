@@ -4,16 +4,17 @@
     $id = $_GET['id'];
 
     include "./../databaseConn.php";
+    include "./../configurl.php";
 
     $sql = "SELECT documentVerified, documentUpload  FROM teachers where teacherId = '$id'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         if($row["documentVerified"] == TRUE){
-            header('Location: http://localhost/cwcapsule/teachers/home.php?id=' . $id);
+            header('Location: ' . $url . ' teachers/home.php?id=' . $id);
         }
         if($row["documentUpload"] == TRUE){
-            header('Location: http://localhost/cwcapsule/teachers/documentVerificationWait.php?id=' . $id);
+            header('Location: ' . $url . ' teachers/documentVerificationWait.php?id=' . $id);
         }
     }
 
@@ -144,7 +145,7 @@
             $sql = "UPDATE teachers SET id = '$idss', qualificationCerti = '$qul', cv = '$cv', pan = '$pan', panno = '$panno', documentUpload = '1' WHERE teacherId = '$id'";
 
             if ($conn->query($sql) === TRUE) {
-                header('Location: http://localhost/cwcapsule/teachers/documentVerificationWait.php?id=' . $id);
+                header('Location: ' . $url . ' teachers/documentVerificationWait.php?id=' . $id);
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }

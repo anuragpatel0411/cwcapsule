@@ -4,6 +4,7 @@
     session_start();
     
     include "./../databaseConn.php";
+    include "./../configurl.php";    
 
     if(isset($_POST['submitStudent'])){
         $email	= $_POST['email'];
@@ -15,7 +16,7 @@
                 $_SESSION["username"] = $row["adminName"];
                 $_SESSION["id"] = $row["adminID"];
                 $_SESSION["role"] = "admin";
-                header('Location: http://localhost/cwcapsule/admin/home.php');
+                header('Location: ' . $url . ' admin/home.php');
             } else {
                 $msg = "Wrong email or password...";
             }
