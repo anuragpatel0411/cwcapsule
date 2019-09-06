@@ -26,6 +26,7 @@
             <li><a class="<?php active('teachers.php');?>" href="teachers.php">Teachers</a></li>
             <li><a class="<?php active('students.php');?>" href="students.php">Students</a></li>
             <li><a class="<?php active('subjects.php');?>" href="subjects.php">Subjects</a></li>
+            <li><a class="<?php active('questions.php');?>" href="questions.php">Questions</a></li>
             <li>
                     <input type="submit" class="logout" name="submit" value="Logout">
             </li>

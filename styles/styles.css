@@ -143,10 +143,12 @@ a:hover {
   background: #fff;
 }
 .img1{
-  background: url(../images/bannerHome.png);
-  height: 380px;
+  background: url(../images/bannerHome.jpg);
+  height: 260px;
   margin: 4px solid black;
   padding-bottom: 0px;
+  background-repeat: no-repeat;
+  background-size: auto;
 }
 .justify-content-center{
   margin-top: 2px;

@@ -122,3 +122,28 @@ th {
   margin-bottom:24px; 
   padding:16px;
 }
+.homeuser{
+  margin: 20px;
+  border-bottom: 2px solid #949494;
+}
+.homemail{
+  margin: 20px;
+  font-size: 25px;
+  font-weight: 500;
+}
+.cards{
+  margin: 10px;
+}
+.cards .card{
+  background-color: #011247;
+  color: #fff;
+  border-radius: 10px;
+  height:80px;
+  font-size: 20px;
+  text-align: left;
+  padding: 10px 20px;
+}
+.cards .links, .cards .links a{
+  color: #e97504;
+  text-align: right;
+}

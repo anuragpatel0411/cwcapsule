@@ -74,6 +74,7 @@ $sql .= "ALTER TABLE `chat_message`  ADD PRIMARY KEY (`chat_message_id`);";
 $sql .= "ALTER TABLE `chat_message`  MODIFY `chat_message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;";
 $sql .= "ALTER TABLE `chat_message` ADD `questionId` INT(6) NOT NULL AFTER `from_user_id`;";
 $sql .= "ALTER TABLE `students` ADD `membership` BOOLEAN NOT NULL DEFAULT FALSE AFTER `verified`, ADD `membershipDate` DATE NULL AFTER `membership`, ADD `currentMembershipQuestionCount` INT NOT NULL DEFAULT '0' AFTER `membershipDate`;";
+$sql .="ALTER TABLE `teachers` ADD `bankName` VARCHAR(50) NULL AFTER `panno`, ADD `accHolderName` VARCHAR(50) NULL AFTER `bankName`, ADD `accountNo` INT(20) NULL AFTER `accHolderName`, ADD `IFSC` VARCHAR(20) NOT NULL AFTER `accountNo`;";
 
 echo $sql;
 

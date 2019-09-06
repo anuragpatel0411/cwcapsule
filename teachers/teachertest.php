@@ -90,7 +90,7 @@
                 <h2>Test</h2>
                 <form method="post">
                     <?php
-                        $sql = "SELECT * FROM teachertestquestions where subjectId = '$subid'";
+                        $sql = "SELECT * FROM teachertestquestions where subjectId = '$subid' ORDER BY RAND() LIMIT 10;";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                             echo "<ol type='1'>";
