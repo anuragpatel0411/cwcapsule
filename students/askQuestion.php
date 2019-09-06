@@ -71,7 +71,7 @@
 
             fwrite($myfile, $txt);
             fclose($myfile);
-            header("Location: " . $url . " students/responseOK.php");     
+            header("Location: " . $url . "students/responseOK.php");     
         }   
     }
 ?>

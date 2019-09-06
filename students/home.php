@@ -22,7 +22,7 @@
         <div class="box" align="center">
             <div class="homeuser"><H2><?php echo $_SESSION["username"];?></H2></div>
             <div>
-                <img src="#" alt="profile" height="150" width="120">
+                <img src="./../images/user.png" alt="profile" height="150" width="150">
             </div>
             <div class="homemail">
                 <?php 

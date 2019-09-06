@@ -16,7 +16,7 @@
                 $_SESSION["username"] = $row["adminName"];
                 $_SESSION["id"] = $row["adminID"];
                 $_SESSION["role"] = "admin";
-                header('Location: ' . $url . ' admin/home.php');
+                header('Location: ' . $url . 'admin/home.php');
             } else {
                 $msg = "Wrong email or password...";
             }

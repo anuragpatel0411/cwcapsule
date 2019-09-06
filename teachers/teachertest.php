@@ -54,7 +54,7 @@
         if($score >=7){
             $sql = "UPDATE teachers SET testPass = 1 WHERE teacherId = '$id'";
             if ($conn->query($sql) === TRUE) {
-                header('Location: ' . $url . ' teachers/documentUpload.php?id='.$id);
+                header('Location: ' . $url . 'teachers/documentUpload.php?id='.$id);
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
@@ -111,7 +111,7 @@
                             }
                             echo "</ol>";
                         } else {
-                            echo $subid."0 results";
+                            echo "0 results";
                         }
                     ?>
                     <div class="btns">

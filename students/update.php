@@ -28,7 +28,7 @@
     }
     
     if(isset($_POST['discard'])){
-        header("Location : " . $url . " students/home.php");
+        header("Location : " . $url . "students/home.php");
     }
 ?>
 

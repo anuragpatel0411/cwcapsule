@@ -131,7 +131,7 @@ $(document).ready(function(){
 
     function refreshMsg() {
         var hvatajPoruke = $.ajax({
-            url: "<?echo $url;?>liveChatUser/take_msg.php",
+            url: "<?php echo $url;?>liveChatUser/take_msg.php",
             method: "POST",
             data:{to_user_id:to_user_id,quid: <?php echo $questionId?>},
             success: function(data) {
@@ -157,7 +157,7 @@ $(document).ready(function(){
 		var chat_message = $('#chat_message_'+to_user_id).val();
 		if(chat_message !=''){
             $.ajax({
-			url:"<?echo $url;?>/insert_chat.php",
+			url:"<?php echo $url;?>liveChatUser/insert_chat.php",
 			method:"POST",
 			data:{to_user_id:to_user_id, chat_message:chat_message, quid: <?php echo $questionId?>},
 			success:function(data){
