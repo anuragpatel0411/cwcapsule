@@ -11,10 +11,10 @@
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         if($row["documentVerified"] == TRUE){
-            header('Location: ' . $url . ' teachers/home.php?id=' . $id);
+            header('Location: ' . $url . 'teachers/home.php?id=' . $id);
         }
         if($row["documentUpload"] == TRUE){
-            header('Location: ' . $url . ' teachers/documentVerificationWait.php?id=' . $id);
+            header('Location: ' . $url . 'teachers/documentVerificationWait.php?id=' . $id);
         }
     }
 
@@ -145,7 +145,7 @@
             $sql = "UPDATE teachers SET id = '$idss', qualificationCerti = '$qul', cv = '$cv', pan = '$pan', panno = '$panno', documentUpload = '1' WHERE teacherId = '$id'";
 
             if ($conn->query($sql) === TRUE) {
-                header('Location: ' . $url . ' teachers/documentVerificationWait.php?id=' . $id);
+                header('Location: ' . $url . 'teachers/documentVerificationWait.php?id=' . $id);
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }

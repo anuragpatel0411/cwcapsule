@@ -39,7 +39,7 @@
         $sql = "UPDATE questionAnswer SET answering='1' WHERE questionId = '$questionId' ";
 
         if ($conn->query($sql) === TRUE) {
-            header("Location: " . $url . " teachers/answering.php?qid=".$questionId."&sName=".$sub);
+            header("Location: " . $url . "teachers/answering.php?qid=".$questionId."&sName=".$sub);
         } else {
             echo "Error updating record: " . $conn->error;
         }

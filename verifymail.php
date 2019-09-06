@@ -19,7 +19,7 @@
                 $_SESSION["username"] = $_GET["name"];
                 $_SESSION["id"] = $id;
                 $_SESSION["role"] = "student";
-                header('Location: ' . $url . ' students/home.php?id='.$id);
+                header('Location: ' . $url . 'students/home.php?id='.$id);
             } else {
                 echo "Error: " . $sql2 . "<br>" . $conn->error;
             }
@@ -42,7 +42,7 @@
                 $_SESSION["username"] = $_GET["name"];
                 $_SESSION["id"] = $id;
                 $_SESSION["role"] = "teacher";
-                header('Location: ' . $url .' teachers/teachertest.php?id='.$id);
+                header('Location: ' . $url .'teachers/teachertest.php?id='.$id);
             } else {
                 echo "Error: " . $sql2 . "<br>" . $conn->error;
             }

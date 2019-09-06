@@ -10,7 +10,7 @@
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             if( $row['documentVerified'] == TRUE){
-                header('Location: ' . $url . ' teachers/home.php?id=' . $id);
+                header('Location: ' . $url . 'teachers/home.php?id=' . $id);
             }
         }
         $conn->close();        

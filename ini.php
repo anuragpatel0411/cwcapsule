@@ -31,7 +31,7 @@ if (mysqli_connect_errno())
   }
 
 // $sql = "CREATE TABLE students (studentId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, studentName VARCHAR(30) NOT NULL, email VARCHAR(50) NOT NULL, birthDate varchar(10) NOT NULL, course varchar(20) NOT NULL, majorSubject varchar(20) NOT NULL, pass varchar(20) NOT NULL,  registrationDate TIMESTAMP);";
-// $sql .="CREATE TABLE subjects (subjetId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, subjectName VARCHAR(30) NOT NULL);";
+// $sql .="CREATE TABLE subjects (subjectId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, subjectName VARCHAR(30) NOT NULL);";
 
 // $sql .="ALTER TABLE `students` ADD `mobile` VARCHAR(20) NOT NULL AFTER `email`;";
 
@@ -61,19 +61,19 @@ if (mysqli_connect_errno())
 // $sql .="ALTER TABLE `teachers` ADD `id` VARCHAR(100) NOT NULL DEFAULT 'None' AFTER `documentVerified`, ADD `qualificationCerti` VARCHAR(100) NOT NULL AFTER `id`, ADD `cv` VARCHAR(100) NOT NULL AFTER `qualificationCerti`, ADD `pan` VARCHAR(100) NULL AFTER `cv`, ADD `panno` VARCHAR(20) NULL AFTER `pan`;";
 // $sql .="ALTER TABLE `teachers` ADD `documentUpload` BOOLEAN NOT NULL DEFAULT FALSE AFTER `testPass`;";
 
-$sql = "CREATE TABLE admin (adminID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, adminName VARCHAR(30) NOT NULL, email VARCHAR(50) NOT NULL, pass varchar(20) NOT NULL,  registrationDate TIMESTAMP);";
-$sql .= "INSERT INTO `admin`(`adminName`, `email`, `pass`) VALUES ('admin', 'admin@gmail.com', 'admin');";
+// $sql .= "CREATE TABLE admin (adminID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, adminName VARCHAR(30) NOT NULL, email VARCHAR(50) NOT NULL, pass varchar(20) NOT NULL,  registrationDate TIMESTAMP);";
+// $sql .= "INSERT INTO `admin`(`adminName`, `email`, `pass`) VALUES ('admin', 'admin@gmail.com', 'admin');";
 
-$sql .= "create TABLE questionanswer(questionId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, subjectId INT(6) NOT NULL, studentId INT(6) NOT NULL, dateofQuestion TIMESTAMP, question varchar(100), quesAttachment boolean, quesAttachmentFile varchar(50), answerId INT(6), dateOfAnswer varchar(10), teacherId INT(6), rating boolean, answering boolean, answerAttachment boolean, answerAttachmentFile varchar(50));";
+// $sql .= "create TABLE questionanswer(questionId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, subjectId INT(6) NOT NULL, studentId INT(6) NOT NULL, dateofQuestion TIMESTAMP, question varchar(100), quesAttachment boolean, quesAttachmentFile varchar(50), answerId INT(6), dateOfAnswer varchar(10), teacherId INT(6), rating boolean, answering boolean, answerAttachment boolean, answerAttachmentFile varchar(50));";
 
-$sql .= "ALTER TABLE `questionanswer` ADD `status` VARCHAR(10) NOT NULL DEFAULT 'Waiting' AFTER `quesAttachmentFile`;";
-$sql .= "ALTER TABLE `questionanswer` CHANGE `answering` `answering` TINYINT(1) NULL DEFAULT '0';";
+// $sql .= "ALTER TABLE `questionanswer` ADD `status` VARCHAR(10) NOT NULL DEFAULT 'Waiting' AFTER `quesAttachmentFile`;";
+// $sql .= "ALTER TABLE `questionanswer` CHANGE `answering` `answering` TINYINT(1) NULL DEFAULT '0';";
 
-$sql .= "CREATE TABLE `chat_message` (  `chat_message_id` int(11) NOT NULL,  `to_user_id` int(11) NOT NULL,  `from_user_id` int(11) NOT NULL,  `chat_message` text NOT NULL,  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,  `status` int(1) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
-$sql .= "ALTER TABLE `chat_message`  ADD PRIMARY KEY (`chat_message_id`);";
-$sql .= "ALTER TABLE `chat_message`  MODIFY `chat_message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;";
-$sql .= "ALTER TABLE `chat_message` ADD `questionId` INT(6) NOT NULL AFTER `from_user_id`;";
-$sql .= "ALTER TABLE `students` ADD `membership` BOOLEAN NOT NULL DEFAULT FALSE AFTER `verified`, ADD `membershipDate` DATE NULL AFTER `membership`, ADD `currentMembershipQuestionCount` INT NOT NULL DEFAULT '0' AFTER `membershipDate`;";
+// $sql .= "CREATE TABLE `chat_message` (  `chat_message_id` int(11) NOT NULL,  `to_user_id` int(11) NOT NULL,  `from_user_id` int(11) NOT NULL,  `chat_message` text NOT NULL,  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,  `status` int(1) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+// $sql .= "ALTER TABLE `chat_message`  ADD PRIMARY KEY (`chat_message_id`);";
+// $sql .= "ALTER TABLE `chat_message`  MODIFY `chat_message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;";
+// $sql .= "ALTER TABLE `chat_message` ADD `questionId` INT(6) NOT NULL AFTER `from_user_id`;";
+$sql = "ALTER TABLE `students` ADD `membership` BOOLEAN NOT NULL DEFAULT FALSE AFTER `verified`, ADD `membershipDate` DATE NULL AFTER `membership`, ADD `currentMembershipQuestionCount` INT NOT NULL DEFAULT '0' AFTER `membershipDate`;";
 $sql .="ALTER TABLE `teachers` ADD `bankName` VARCHAR(50) NULL AFTER `panno`, ADD `accHolderName` VARCHAR(50) NULL AFTER `bankName`, ADD `accountNo` INT(20) NULL AFTER `accHolderName`, ADD `IFSC` VARCHAR(20) NOT NULL AFTER `accountNo`;";
 
 echo $sql;

@@ -63,7 +63,7 @@
 
             fwrite($myfile, $txt);
             fclose($myfile);      
-            header("Location: " . $url . " teachers/viewQuestionAnswer.php?id=" . $teacherId . "&qid=" . $questionId . "&sName=" . $sub); 
+            header("Location: " . $url . "teachers/viewQuestionAnswer.php?id=" . $teacherId . "&qid=" . $questionId . "&sName=" . $sub); 
         }
     }
 ?>
